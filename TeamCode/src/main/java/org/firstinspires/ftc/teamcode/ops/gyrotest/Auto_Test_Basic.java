@@ -56,7 +56,7 @@ public class Auto_Test_Basic extends LinearOpMode {
         /* Use either robot.initAll or select only the components that need initializing below */
         //robot.initAll();
         robot.gyroNavigator.init();
-        robot.gyroNavigator2.init();
+        //robot.gyroNavigator2.init();
 
         robot.logger.logInfo("runOpMode", "===== [ Initialization Complete ]");
         telemetry.update();
@@ -77,7 +77,7 @@ public class Auto_Test_Basic extends LinearOpMode {
             robot.driveTrain.encoderDrive(1, -16);
             robot.driveTrain.gyroRotate(90, .5, true, false);
 
-            robot.logger.logInfo("runOpMode", "Angles: 1:%f 2:%f", angle1);
+            robot.logger.logInfo("runOpMode", "Angles: 1:%f", angle1);
 
         }
 
