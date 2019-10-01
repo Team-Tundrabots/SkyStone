@@ -34,6 +34,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.bots.TestBot;
+import org.firstinspires.ftc.teamcode.components.DriveTrain;
 
 
 @Autonomous(name="Auto_Test_Basic", group="gyrotest")
@@ -55,6 +56,7 @@ public class Auto_Test_Basic extends LinearOpMode {
 
         /* Use either robot.initAll or select only the components that need initializing below */
         //robot.initAll();
+        robot.driveTrain.init(DriveTrain.InitType.INIT_4WD);
         robot.gyroNavigator.init();
         //robot.gyroNavigator2.init();
 
@@ -72,13 +74,12 @@ public class Auto_Test_Basic extends LinearOpMode {
             double angle1 = robot.gyroNavigator.getAngle();
          //   double angle2 = robot.gyroNavigator2.getAngle();
 
-            robot.driveTrain.encoderDrive(1, 96);
-            robot.driveTrain.crabRight(2);
-            robot.driveTrain.encoderDrive(1, -16);
-            robot.driveTrain.gyroRotate(90, .5, true, false);
+            robot.driveTrain.encoderDrive(1, 20);
+            robot.driveTrain.crabRight(4);
+            robot.driveTrain.encoderDrive(1, -20);
 
             robot.logger.logInfo("runOpMode", "Angles: 1:%f", angle1);
-
+            stop();
         }
 
         // Show the elapsed game time.
