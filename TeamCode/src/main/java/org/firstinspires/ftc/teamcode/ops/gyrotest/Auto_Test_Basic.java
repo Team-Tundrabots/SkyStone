@@ -70,7 +70,7 @@ public class Auto_Test_Basic extends LinearOpMode {
         runtime.reset();
 
         
-        while (opModeIsActive()) {
+       // while (opModeIsActive()) {
             double angle1 = robot.gyroNavigator.getAngle();
          //   double angle2 = robot.gyroNavigator2.getAngle();
 
@@ -79,8 +79,8 @@ public class Auto_Test_Basic extends LinearOpMode {
             robot.driveTrain.encoderDrive(1, -20);
 
             robot.logger.logInfo("runOpMode", "Angles: 1:%f", angle1);
-            stop();
-        }
+
+      //  }
 
         // Show the elapsed game time.
         robot.logger.logInfo("runOpMode", "===== [ Autonomous Complete ] Run Time: %s", runtime.toString());
