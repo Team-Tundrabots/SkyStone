@@ -32,6 +32,7 @@ package org.firstinspires.ftc.teamcode.ops.gyrotest;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.bots.TestBot;
 import org.firstinspires.ftc.teamcode.components.DriveTrain;
@@ -74,10 +75,11 @@ public class Auto_Test_Basic extends LinearOpMode {
             double angle1 = robot.gyroNavigator.getAngle();
          //   double angle2 = robot.gyroNavigator2.getAngle();
 
-            robot.driveTrain.encoderDrive(1, 20);
-            robot.driveTrain.crabEncoderRight(1, 68);
-            robot.driveTrain.encoderDrive(1, 30);
-            robot.driveTrain.gyroRotate(90, 1, true, false);
+            robot.driveTrain.encoderDrive(1, -20);
+            robot.driveTrain.crabEncoderLeft(1, -80/2);
+            robot.driveTrain.encoderDrive(1, -10/2);
+            robot.grapple.moveDown();
+            robot.driveTrain.encoderDrive(1, 30/2);
 
 
             robot.logger.logInfo("runOpMode", "Angles: 1:%f", angle1);
