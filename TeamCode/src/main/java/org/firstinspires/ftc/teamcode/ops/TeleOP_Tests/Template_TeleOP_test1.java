@@ -45,7 +45,7 @@ public class Template_TeleOP_test1 extends LinearOpMode {
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
     private TestBot robot = null;
-    private boolean logEnableTrace = true;
+    private boolean logEnableTrace = false;
     private boolean logToTelemetry = true;
 
 

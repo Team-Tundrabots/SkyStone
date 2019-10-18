@@ -40,7 +40,7 @@ import org.firstinspires.ftc.teamcode.components.WebCamera;
 
 
 @Autonomous(name="GyroTest_Auto", group="gyrotest")
-//@Disabled
+@Disabled
 public class GyroTest_Auto extends LinearOpMode {
 
     // Declare OpMode members.
@@ -59,7 +59,7 @@ public class GyroTest_Auto extends LinearOpMode {
         /* Use either robot.initAll or select only the components that need initializing below */
         //robot.initAll();
         robot.gyroNavigator.init();
-        robot.gyroNavigator2.init();
+//        robot.gyroNavigator2.init();
 
         robot.logger.logInfo("runOpMode", "===== [ Initialization Complete ]");
         telemetry.update();
@@ -73,9 +73,9 @@ public class GyroTest_Auto extends LinearOpMode {
         
         while (opModeIsActive()) {
             double angle1 = robot.gyroNavigator.getAngle();
-            double angle2 = robot.gyroNavigator2.getAngle();
+//            double angle2 = robot.gyroNavigator2.getAngle();
 
-            robot.logger.logInfo("runOpMode", "Angles: 1:%f 2:%f", angle1, angle2);
+//            robot.logger.logInfo("runOpMode", "Angles: 1:%f 2:%f", angle1, angle2);
 
         }
 

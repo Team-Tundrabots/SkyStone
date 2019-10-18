@@ -46,7 +46,7 @@ public class TestBot extends Bot {
     public WebCamera webCamera = null;
     public DriveTrain driveTrain = null;
     public GyroNavigator gyroNavigator = null;
-    public GyroNavigator gyroNavigator2 = null;
+//    public GyroNavigator gyroNavigator2 = null;
     public WebCamNavigator webCamNavigator = null;
     public Grapple grapple = null;
 
@@ -63,7 +63,7 @@ public class TestBot extends Bot {
 
         logger = new Logger("TestBot", aOpMode, enableTrace, enableTelemetry);
         gyroNavigator = new GyroNavigator(logger, aOpMode);
-        gyroNavigator2 = new GyroNavigator(logger, aOpMode, "imu 1");
+//        gyroNavigator2 = new GyroNavigator(logger, aOpMode, "imu 1");
         driveTrain = new DriveTrain(logger, aOpMode, "frontLeftMotor", "frontRightMotor",
                 "backLeftMotor", "backRightMotor",
                 gyroNavigator);

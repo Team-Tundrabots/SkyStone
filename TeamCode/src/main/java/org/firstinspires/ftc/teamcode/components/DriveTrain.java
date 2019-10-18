@@ -344,7 +344,7 @@ public class DriveTrain extends BotComponent {
 
             // reset the timeout time and start motion.
             runtime.reset();
-            updateMotorsMechanumDrive(-power, 0, 0, -power);
+            updateMotorsMechanumDrive(-power, 0, 0, 0);
 
             logger.setDebugFilter("crabEncoderLeft");
 
@@ -398,7 +398,7 @@ public class DriveTrain extends BotComponent {
 
             // reset the timeout time and start motion.
             runtime.reset();
-            updateMotorsMechanumDrive(power, 0, 0, -power);
+            updateMotorsMechanumDrive(power, 0, 0, 0);
 
 
             logger.setDebugFilter("crabEncoderLeft");
