@@ -233,6 +233,7 @@ public class DriveTrain extends BotComponent {
         double r = Math.hypot(lX, lY);
         double robotAngle = Math.atan2(lY, lX) - Math.PI / 4;
 
+
         final double v1 = r * Math.cos(robotAngle) + rX;
         final double v2 = r * Math.sin(robotAngle) - rX;
         final double v3 = r * Math.sin(robotAngle) + rX;
