@@ -345,7 +345,7 @@ public class DriveTrain extends BotComponent {
 
             // reset the timeout time and start motion.
             runtime.reset();
-            updateMotorsMechanumDrive(-power, 0, 0, 0);
+            updateMotorsMechanumDrive(-power, 0, 0, power);
 
             logger.setDebugFilter("crabEncoderLeft");
 
@@ -392,9 +392,9 @@ public class DriveTrain extends BotComponent {
                 backLeftMotor.setTargetPosition(newTarget);
                 backLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             } else {
-                newTarget = backLeftMotor.getCurrentPosition() + (int) (inches * COUNTS_PER_INCH);
-                backLeftMotor.setTargetPosition(newTarget);
-                backLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                newTarget = frontLeftMotor.getCurrentPosition() + (int) (inches * COUNTS_PER_INCH);
+                frontLeftMotor.setTargetPosition(newTarget);
+                frontLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             }
 
             // reset the timeout time and start motion.
@@ -402,15 +402,15 @@ public class DriveTrain extends BotComponent {
             updateMotorsMechanumDrive(power, 0, 0, 0);
 
 
-            logger.setDebugFilter("crabEncoderLeft");
+            logger.setDebugFilter("crabEncoderRight");
 
             while (opModeIsActive() &&
                     (runtime.seconds() < timeoutSeconds) && backLeftMotor.isBusy()) {
 
-                logger.logDebug("crabEncoderLeft", "Inches: %f Target: %7d", inches, newTarget);
-                logger.logDebug("crabEncoderLeft", "Front:  Left:%7d Right:%7d", getFrontLeftPosition(), getFrontRightPosition());
-                logger.logDebug("crabEncoderLeft", "Back:   Left:%7d Right:%7d", getBackLeftPosition(), getBackRightPosition());
-                logger.logDebug("crabEncoderLeft", "runtime.seconds: %f timeout: %f", runtime.seconds(), timeoutSeconds);
+                logger.logDebug("crabEncoderRight", "Inches: %f Target: %7d", inches, newTarget);
+                logger.logDebug("crabEncoderRight", "Front:  Left:%7d Right:%7d", getFrontLeftPosition(), getFrontRightPosition());
+                logger.logDebug("crabEncoderRight", "Back:   Left:%7d Right:%7d", getBackLeftPosition(), getBackRightPosition());
+                logger.logDebug("crabEncoderRight", "runtime.seconds: %f timeout: %f", runtime.seconds(), timeoutSeconds);
 
                 logger.incrementDebugFilterCount();
             }

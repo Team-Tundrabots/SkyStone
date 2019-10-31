@@ -71,18 +71,15 @@ public class Auto_Test_Basic extends LinearOpMode {
         runtime.reset();
 
         
-       // while (opModeIsActive()) {
+       while (opModeIsActive()) {
             double angle1 = robot.gyroNavigator.getAngle();
          //   double angle2 = robot.gyroNavigator2.getAngle();
 
-            /*
-            robot.driveTrain.encoderDrive(1, -20/2);
-            robot.driveTrain.crabEncoderRight(1, -80);
-            robot.driveTrain.encoderDrive(1, -10);
-            robot.grapple.moveDown();
-            robot.driveTrain.encoderDrive(1, 30);
-            */
-            while(opModeIsActive()) {
+           robot.driveTrain.crabEncoderLeft(0.5, 20);
+           robot.driveTrain.crabEncoderRight(0.5, 10);
+           robot.driveTrain.encoderDrive(1, 48);
+
+           // while(opModeIsActive()) {
                 //robot.driveTrain.gyroRotate(90, 0.5);
                 sleep(1000);
                 //robot.driveTrain.gyroRotate(-90, 0.5);
@@ -92,7 +89,7 @@ public class Auto_Test_Basic extends LinearOpMode {
 
 
 
-            robot.logger.logInfo("runOpMode", "Angles: 1:%f", angle1);
+            //robot.logger.logInfo("runOpMode", "Angles: 1:%f", angle1);
 
       //  }
 
