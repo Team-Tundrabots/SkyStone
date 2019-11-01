@@ -227,7 +227,7 @@ public class DriveTrain extends BotComponent {
 
         double lX = -leftX;
         double lY = leftY;
-        double rX = -rightX / 2;
+        double rX = -rightX;
         double rY = rightY;
 
         double r = Math.hypot(lX, lY);
@@ -345,7 +345,7 @@ public class DriveTrain extends BotComponent {
 
             // reset the timeout time and start motion.
             runtime.reset();
-            updateMotorsMechanumDrive(-power, 0, 0, power);
+            updateMotorsMechanumDrive(-power, 0, 0, -power);
 
             logger.setDebugFilter("crabEncoderLeft");
 
@@ -399,7 +399,7 @@ public class DriveTrain extends BotComponent {
 
             // reset the timeout time and start motion.
             runtime.reset();
-            updateMotorsMechanumDrive(power, 0, 0, 0);
+            updateMotorsMechanumDrive(power, 0, 0, power);
 
 
             logger.setDebugFilter("crabEncoderRight");
