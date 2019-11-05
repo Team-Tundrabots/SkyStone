@@ -190,7 +190,7 @@ public class DriveTrain extends BotComponent {
         setRightMotorsPower(0.0);
     }
 
-    public void crabLeft(double seconds) {
+   /* public void crabLeft(double seconds) {
 
         logger.logDebug("crabLeft", "seconds: %f", seconds);
         ElapsedTime runtime = new ElapsedTime();
@@ -204,9 +204,9 @@ public class DriveTrain extends BotComponent {
             opMode.telemetry.update();
         }
         stop();
-    }
+    } */
 
-    public void crabRight(double seconds) {
+  /*  public void crabRight(double seconds) {
 
         logger.logDebug("crabRight", "seconds: %f", seconds);
         ElapsedTime runtime = new ElapsedTime();
@@ -220,9 +220,9 @@ public class DriveTrain extends BotComponent {
             opMode.telemetry.update();
         }
         stop();
-    }
+    } */
 
-    public void updateMotorsMechanumDrive(double leftX, double leftY, double rightX, double rightY) {
+  /*  public void updateMotorsMechanumDrive(double leftX, double leftY, double rightX, double rightY) {
 
 
         double lX = -leftX;
@@ -252,7 +252,23 @@ public class DriveTrain extends BotComponent {
         if (!opModeIsActive()) { stop(); }
 
 
-    }
+    } */
+
+  public void mechanumMotorDiagonalPower(double downDiagonal, double upDiagonal) {
+
+      double downD = downDiagonal;
+      double upD = upDiagonal;
+
+      if (frontMotorsEnabled) {
+          frontLeftMotor.setPower(downD);
+          frontRightMotor.setPower(upD);
+      }
+      if (backMotorsEnabled) {
+          backRightMotor.setPower(downD);
+          backLeftMotor.setPower(upD);
+      }
+  }
+
 
 
     public void disableEncoders() {
@@ -345,7 +361,7 @@ public class DriveTrain extends BotComponent {
 
             // reset the timeout time and start motion.
             runtime.reset();
-            updateMotorsMechanumDrive(-power, 0, 0, -power);
+            mechanumMotorDiagonalPower(power, -power);
 
             logger.setDebugFilter("crabEncoderLeft");
 
@@ -399,7 +415,7 @@ public class DriveTrain extends BotComponent {
 
             // reset the timeout time and start motion.
             runtime.reset();
-            updateMotorsMechanumDrive(power, 0, 0, power);
+            mechanumMotorDiagonalPower(-power, power);
 
 
             logger.setDebugFilter("crabEncoderRight");
