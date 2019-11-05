@@ -399,7 +399,7 @@ public class DriveTrain extends BotComponent {
 
             // reset the timeout time and start motion.
             runtime.reset();
-            updateMotorsMechanumDrive(power, 0, 0, power);
+            updateMotorsMechanumDrive(power, 0, -power, 0);
 
 
             logger.setDebugFilter("crabEncoderRight");
@@ -574,7 +574,7 @@ public class DriveTrain extends BotComponent {
         while (opModeIsActive() && !rotationComplete) {
 
             if (Math.abs((int)currentAngle - (int)targetAngle) < 5 ) {
-                adjustedPower = 0.25;
+                adjustedPower = 0.1;
             }
 
             logger.logDebug("gyroRotate", "degrees: %f, power: %f, adjustedPower: %f", degrees, power, adjustedPower);
