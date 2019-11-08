@@ -38,30 +38,31 @@ public class Grapple extends BotComponent {
     public Servo servo2 = null;
     double SERVO_DOWN_POSITION = 0;
     double SERVO_UP_POSITION = 1;
-public Grapple(){
-}
-public Grapple(Logger aLogger, OpMode aOpMode, String servoName, String servoName2){
-    super(aLogger, aOpMode);
-    //define and initialize motors
-    servo = initServo(servoName, SERVO_UP_POSITION);
-    servo2 = initServo(servoName2, SERVO_UP_POSITION);
-    if(servo != null && servo2 != null){
-        isAvailable = true;
+
+    public Grapple() {
     }
 
-    logger .logInfo("Grapple","isAvailable: %b",isAvailable);
+    public Grapple(Logger aLogger, OpMode aOpMode, String servoName, String servoName2) {
+        super(aLogger, aOpMode);
+        //define and initialize motors
+        servo = initServo(servoName, SERVO_UP_POSITION);
+        servo2 = initServo(servoName2, SERVO_UP_POSITION);
+        if (servo != null && servo2 != null) {
+            isAvailable = true;
+        }
+
+        logger.logInfo("Grapple", "isAvailable: %b", isAvailable);
+    }
+
+    public void moveDown() {
+        servo.setPosition(SERVO_DOWN_POSITION);
+        servo2.setPosition(SERVO_DOWN_POSITION);
+
+
+    }
+
+    public void moveUp() {
+        servo.setPosition(SERVO_UP_POSITION);
+        servo2.setPosition(SERVO_UP_POSITION);
+    }
 }
-
-public void moveDown(){
-    servo.setPosition(SERVO_DOWN_POSITION);
-    servo2.setPosition(SERVO_DOWN_POSITION);
-
-
-}
-
-public void moveUp(){
-    servo.setPosition(SERVO_UP_POSITION);
-    servo2.setPosition(SERVO_UP_POSITION);
-}
-}
-
