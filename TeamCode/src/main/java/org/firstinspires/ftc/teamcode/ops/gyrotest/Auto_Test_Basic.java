@@ -75,14 +75,18 @@ public class Auto_Test_Basic extends LinearOpMode {
             double angle1 = robot.gyroNavigator.getAngle();
          //   double angle2 = robot.gyroNavigator2.getAngle();
 
-           robot.driveTrain.encoderDrive(1, -0.5);
+         /*  robot.driveTrain.encoderDrive(1, -0.5);
            robot.driveTrain.gyroRotate(90, 0.5, true, false);
            robot.driveTrain.encoderDrive(1, -40);
            robot.driveTrain.gyroRotate(-90, 0.5, true, false);
            robot.driveTrain.encoderDrive(1, -10);
-           robot.driveTrain.encoderDrive(1, 10);
+           robot.driveTrain.encoderDrive(1, 10); */
 
-           robot.driveTrain.stop();
+           robot.driveTrain.crabEncoderLeft(0.5, 10);
+           robot.driveTrain.pause(1);
+           robot.driveTrain.crabEncoderRight(0.5, 5);
+           robot.driveTrain.pause(1);
+           robot.driveTrain.encoderDrive(0.5, 10);
 
 
             }
