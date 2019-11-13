@@ -143,7 +143,7 @@ public class DriveTrain extends BotComponent {
         }
     }
 
-    /*
+
     public void move(double seconds, double leftPower, double rightPower) {
 
         ElapsedTime runtime = new ElapsedTime();
@@ -170,7 +170,7 @@ public class DriveTrain extends BotComponent {
         // move forwards with negative power
         move(seconds, -power, -power);
     }
-*/
+
     public void updateMotorsTankDrive(double leftY, double rightY) {
 
         double left;
@@ -436,7 +436,7 @@ public class DriveTrain extends BotComponent {
                              double leftInches, double rightInches,
                              double timeoutSeconds) {
         boolean useGyro = false;
-        encoderDrive(power,leftInches, rightInches, timeoutSeconds, useGyro);
+        encoderDrive(power, leftInches, rightInches, timeoutSeconds, useGyro);
 
     }
 
@@ -480,6 +480,7 @@ public class DriveTrain extends BotComponent {
                 newLeftTarget = frontLeftMotor.getCurrentPosition() - (int) (leftInches * COUNTS_PER_INCH);
                 newRightTarget = frontRightMotor.getCurrentPosition() - (int) (rightInches * COUNTS_PER_INCH);
             }
+            logger.logDebug("encoderDrive", "Target: Left:%7d Right:%7d", newLeftTarget, newRightTarget);
 
             setTargetPositions(newLeftTarget, newRightTarget);
 
@@ -488,11 +489,10 @@ public class DriveTrain extends BotComponent {
 
             setLeftMotorsPower(power);
             setRightMotorsPower(power);
-
-            logger.setDebugFilter("encoderDrive");
-
+    /*
             while (opModeIsActive() &&
-                    (runtime.seconds() < timeoutSeconds) && encodersAreBusy()) {
+                    (runtime.seconds() < timeoutSeconds)) {
+                    */
 
                 logger.logDebug("encoderDrive", "Inches: Left:%f Right:%f", leftInches, rightInches);
                 logger.logDebug("encoderDrive", "Target: Left:%7d Right:%7d", newLeftTarget, newRightTarget);
@@ -526,7 +526,7 @@ public class DriveTrain extends BotComponent {
         }
 
 
-    }
+    
 
     private int getFrontLeftPosition() {
         return frontLeftMotor.getCurrentPosition();        
