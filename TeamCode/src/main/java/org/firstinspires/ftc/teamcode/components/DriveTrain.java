@@ -460,8 +460,8 @@ public class DriveTrain extends BotComponent {
             targetAngle = (int) gyroNavigator.getAngle();
         }
 
-        int newLeftTarget;
-        int newRightTarget;
+        int newLeftTarget = 0;
+        int newRightTarget = 0;
 
         resetEncoders();
 

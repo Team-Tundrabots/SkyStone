@@ -80,10 +80,16 @@ public class Auto_Test_Basic extends LinearOpMode {
            robot.driveTrain.encoderDrive(1, -10);
            robot.driveTrain.encoderDrive(1, 10); */
 
-           robot.driveTrain.crabEncoderLeft(0.5, 5);
+           robot.driveTrain.crabEncoderLeft(0.5, 3);
+           robot.driveTrain.gyroRotate(-5, 0.2, true, false);
            robot.driveTrain.pause(0.5);
-           robot.driveTrain.encoderDrive(0.3, 1);
-           //robot.driveTrain.moveForward(5, 1);
+           robot.driveTrain.moveForward(0.75, -1);
+           robot.driveTrain.gyroRotate(90, 0.5, true, false);
+           robot.driveTrain.moveForward(0.8, 0.5);
+           robot.driveTrain.pause(2.0);
+           robot.grapple.servoMoveDown();
+           robot.driveTrain.pause(0.5);
+           robot.driveTrain.moveBackward(0.3, 1);
 
 
 

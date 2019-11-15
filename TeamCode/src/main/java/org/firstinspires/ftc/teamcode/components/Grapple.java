@@ -52,14 +52,14 @@ public Grapple(Logger aLogger, OpMode aOpMode, String servoName, String servoNam
     logger .logInfo("Grapple","isAvailable: %b",isAvailable);
 }
 
-public void moveDown(){
+public void servoMoveDown(){
     servo.setPosition(SERVO_DOWN_POSITION);
     servo2.setPosition(SERVO_DOWN_POSITION);
 
 
 }
 
-public void moveUp(){
+public void servoMoveUp(){
     servo.setPosition(SERVO_UP_POSITION);
     servo2.setPosition(SERVO_UP_POSITION);
 }
