@@ -28,11 +28,14 @@
  */
 
 package org.firstinspires.ftc.teamcode.components;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.hardware.Servo;
 
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
+import org.firstinspires.ftc.robotcore.external.Telemetry;
+@Disabled
 public class Grapple extends BotComponent {
     public Servo servo = null;
     public Servo servo2 = null;
@@ -43,6 +46,7 @@ public Grapple(){
 public Grapple(Logger aLogger, OpMode aOpMode, String servoName, String servoName2){
     super(aLogger, aOpMode);
     //define and initialize motors
+    logger.logDebug("initservo", "IamWalrus");
     servo = initServo(servoName, SERVO_UP_POSITION);
     servo2 = initServo(servoName2, SERVO_UP_POSITION);
     if(servo != null && servo2 != null){
@@ -53,14 +57,19 @@ public Grapple(Logger aLogger, OpMode aOpMode, String servoName, String servoNam
 }
 
 public void servoMoveDown(){
+    logger.logDebug("servoMoveDown", "walrus");
     servo.setPosition(SERVO_DOWN_POSITION);
+}
+
+public void servo2MoveDown(){
     servo2.setPosition(SERVO_DOWN_POSITION);
-
-
 }
 
 public void servoMoveUp(){
     servo.setPosition(SERVO_UP_POSITION);
+}
+
+public void servo2MoveUp(){
     servo2.setPosition(SERVO_UP_POSITION);
 }
 }
