@@ -39,7 +39,7 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 public class Grapple extends BotComponent {
     public Servo servo = null;
     public Servo servo2 = null;
-    double SERVO_DOWN_POSITION = 0;
+    double SERVO_DOWN_POSITION = 0.2;
     double SERVO_UP_POSITION = 1;
 public Grapple(){
 }

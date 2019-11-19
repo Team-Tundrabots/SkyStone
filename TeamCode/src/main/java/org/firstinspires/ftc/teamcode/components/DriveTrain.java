@@ -670,6 +670,7 @@ public class DriveTrain extends BotComponent {
 
             double NLspeed;
             double NRspeed;
+            //ramp spiny fast go broke thing PROBLEM
             //To Avoid spinning the wheels, this will "Slowly" ramp the motors up over
             //the amount of time you set for this SubRun
             double R = runtime.seconds();
