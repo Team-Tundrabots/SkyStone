@@ -91,12 +91,11 @@ public class Auto_Test_Basic extends LinearOpMode {
            robot.grapple.servo2MoveDown();
            robot.driveTrain.pause(2);
            robot.driveTrain.moveBackward(1, 0.5);
-           while(opModeIsActive() && (runtime.seconds() < .3));
-           {
-               robot.driveTrain.setLeftMotorsPower(1);
-               robot.driveTrain.setRightMotorsPower(-1);
-           }
-           robot.driveTrain.moveBackward(0.8, 1);
+           //robot.driveTrain.move(.15,-1,1);
+           robot.driveTrain.gyroRotate(90, 0.5, true, false);
+           robot.grapple.servoMoveUp();
+           robot.grapple.servo2MoveUp();
+           robot.driveTrain.moveForward(0.8, 0.5);
 
 
 
