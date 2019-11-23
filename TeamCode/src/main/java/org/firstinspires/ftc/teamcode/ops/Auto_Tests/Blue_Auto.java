@@ -27,20 +27,19 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package org.firstinspires.ftc.teamcode.ops.gyrotest;
+package org.firstinspires.ftc.teamcode.ops.Auto_Tests;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
-import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.bots.TestBot;
 import org.firstinspires.ftc.teamcode.components.DriveTrain;
 
 
-@Autonomous(name="Auto_Test_Basic", group="gyrotest")
+@Autonomous(name="Blue_Auto", group="gyrotest")
 //@Disabled
-public class Auto_Test_Basic extends LinearOpMode {
+public class Blue_Auto extends LinearOpMode {
 
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
@@ -80,11 +79,11 @@ public class Auto_Test_Basic extends LinearOpMode {
            robot.driveTrain.encoderDrive(1, -10);
            robot.driveTrain.encoderDrive(1, 10); */
 
-           robot.driveTrain.crabEncoderLeft(0.5, 3);
+           robot.driveTrain.crabEncoderRight(0.5, 3);
            robot.driveTrain.gyroRotate(-5, 0.2, true, false);
            robot.driveTrain.pause(0.5);
            robot.driveTrain.moveForward(0.85, -1);
-           robot.driveTrain.gyroRotate(90, 0.5, true, false);
+           robot.driveTrain.gyroRotate(-90, 0.5, true, false);
            robot.driveTrain.moveForward(0.7, 0.5);
            robot.driveTrain.pause(1);
            robot.grapple.servoMoveDown();
@@ -92,10 +91,11 @@ public class Auto_Test_Basic extends LinearOpMode {
            robot.driveTrain.pause(2);
            robot.driveTrain.moveBackward(1, 0.5);
            //robot.driveTrain.move(.15,-1,1);
-           robot.driveTrain.gyroRotate(90, 0.5, true, false);
+           robot.driveTrain.gyroRotate(-90, 0.5, true, false);
            robot.grapple.servoMoveUp();
            robot.grapple.servo2MoveUp();
-           robot.driveTrain.moveForward(0.8, 0.5);
+           robot.driveTrain.moveForward(0.8, 0.3);
+           robot.driveTrain.moveForward(0.3, -1);
 
 
 

@@ -35,11 +35,11 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
-@Disabled
+//@Disabled
 public class Grapple extends BotComponent {
     public Servo servo = null;
     public Servo servo2 = null;
-    double SERVO_DOWN_POSITION = 0.2;
+    double SERVO_DOWN_POSITION = 0.77;
     double SERVO_UP_POSITION = 1;
 public Grapple(){
 }
