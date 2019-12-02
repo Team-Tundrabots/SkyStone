@@ -32,15 +32,14 @@ package org.firstinspires.ftc.teamcode.ops.gyrotest;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
-import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.bots.TestBot;
 import org.firstinspires.ftc.teamcode.components.DriveTrain;
 
 
-@Autonomous(name="Auto_Test_Basic", group="gyrotest")
+@Autonomous(name="Auto_Test_Basicc", group="gyrotest")
 //@Disabled
-public class Auto_Test_Basic extends LinearOpMode {
+public class Auto_Test_Basicc extends LinearOpMode {
 
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();

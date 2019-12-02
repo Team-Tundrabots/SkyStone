@@ -32,12 +32,13 @@ package org.firstinspires.ftc.teamcode.ops.Auto_Tests;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.bots.TestBot;
 import org.firstinspires.ftc.teamcode.components.DriveTrain;
 
 
-@Autonomous(name="Red_Auto", group="Auto_Tests")
+@Autonomous(name="Red_Auto", group="gyrotest")
 //@Disabled
 public class Red_Auto extends LinearOpMode {
 
@@ -91,11 +92,10 @@ public class Red_Auto extends LinearOpMode {
            robot.driveTrain.pause(2);
            robot.driveTrain.moveBackward(1, 0.5);
            //robot.driveTrain.move(.15,-1,1);
-           robot.driveTrain.gyroRotate(90, 0.75, true, false);
+           robot.driveTrain.gyroRotate(90, 0.5, true, false);
            robot.grapple.servoMoveUp();
            robot.grapple.servo2MoveUp();
-           robot.driveTrain.moveForward(0.8, 0.3);
-           robot.driveTrain.moveForward(0.3, -1);
+           robot.driveTrain.moveForward(0.8, 0.5);
 
 
 
