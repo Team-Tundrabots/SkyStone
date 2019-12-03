@@ -149,6 +149,8 @@ public class BotComponent {
         }
     }
 
+
+
     public void pause(double seconds) {
         long milliseconds = (long)seconds * 1000;
 
