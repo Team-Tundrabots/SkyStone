@@ -98,6 +98,13 @@ public class Blue_Auto extends LinearOpMode {
            robot.grapple.servo2MoveUp();
            robot.driveTrain.moveForward(0.8, 0.3);
            robot.driveTrain.moveForward(0.3, -1);
+           if(robot.colorDetection.red() == 225 && robot.colorDetection.green() == 225 && robot.colorDetection.blue() == 0){
+               robot.driveTrain.moveForward(1,1);
+
+           }
+           else{
+               robot.driveTrain.crabRight(5);
+           }
 
 
 
