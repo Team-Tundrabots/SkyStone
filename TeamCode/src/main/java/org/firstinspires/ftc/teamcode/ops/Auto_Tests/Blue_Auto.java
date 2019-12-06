@@ -35,7 +35,6 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.bots.TestBot;
 import org.firstinspires.ftc.teamcode.components.DriveTrain;
-import org.firstinspires.ftc.teamcode.components.SensorREVColorDistance;
 
 
 @Autonomous(name="Blue_Auto", group="gyrotest")
@@ -98,14 +97,6 @@ public class Blue_Auto extends LinearOpMode {
            robot.grapple.servo2MoveUp();
            robot.driveTrain.moveForward(0.8, 0.3);
            robot.driveTrain.moveForward(0.3, -1);
-           if(robot.colorDetection.red() == 225 && robot.colorDetection.green() == 225 && robot.colorDetection.blue() == 0){
-               robot.driveTrain.moveForward(1,1);
-
-           }
-           else{
-               robot.driveTrain.crabRight(5);
-           }
-
 
 
             //robot.logger.logInfo("runOpMode", "Angles: 1:%f", angle1);
