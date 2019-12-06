@@ -35,7 +35,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.bots.TestBot;
 import org.firstinspires.ftc.teamcode.components.DriveTrain;
-import org.firstinspires.ftc.teamcode.components.ColorDetection;
+import org.firstinspires.ftc.teamcode.components.SensorREVColorDistance;
 
 
 @Autonomous(name="Blue_Auto", group="gyrotest")
@@ -59,7 +59,7 @@ public class Blue_Auto extends LinearOpMode {
         //robot.initAll();
         robot.driveTrain.init(DriveTrain.InitType.INIT_4WD);
         robot.gyroNavigator.init();
-        robot.colorDetection.initColor();
+        //robot.colorDetection.initColor();
         //robot.gyroNavigator2.init();
 
         robot.logger.logInfo("runOpMode", "===== [ Initialization Complete ]");
@@ -98,7 +98,6 @@ public class Blue_Auto extends LinearOpMode {
            robot.grapple.servo2MoveUp();
            robot.driveTrain.moveForward(0.8, 0.3);
            robot.driveTrain.moveForward(0.3, -1);
-           robot.colorDetection.findYellow();
 
 
 

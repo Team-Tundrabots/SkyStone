@@ -96,6 +96,7 @@ public class Red_Auto extends LinearOpMode {
            robot.grapple.servoMoveUp();
            robot.grapple.servo2MoveUp();
            robot.driveTrain.moveForward(0.8, 0.5);
+           robot.colorDetection.argb();
 
 
 
