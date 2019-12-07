@@ -35,6 +35,7 @@ import org.firstinspires.ftc.teamcode.components.BotComponent;
 import org.firstinspires.ftc.teamcode.components.Grapple;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import org.firstinspires.ftc.teamcode.components.GyroNavigator;
+import org.firstinspires.ftc.teamcode.components.SkystoneFinder;
 import org.firstinspires.ftc.teamcode.components.WebCamera;
 import org.firstinspires.ftc.teamcode.components.DriveTrain;
 import org.firstinspires.ftc.teamcode.components.Logger;
@@ -51,7 +52,8 @@ public class TestBot extends Bot {
 //    public GyroNavigator gyroNavigator2 = null;
     public WebCamNavigator webCamNavigator = null;
     public Grapple grapple = null;
-    public ColorSensor colorDetection = null;
+    //public ColorSensor colorDetection = null;
+    public SkystoneFinder skystoneFinder = null;
 
     /* Constructor */
     public TestBot() {
@@ -75,6 +77,7 @@ public class TestBot extends Bot {
         webCamNavigator = new WebCamNavigator(logger, aOpMode, webCamera);
         grapple = new Grapple(logger, aOpMode, "servo1", "servo2");
         //colorDetection = new ColorDetection();
+        skystoneFinder = new SkystoneFinder(logger, aOpMode);
 
 
     }
@@ -84,6 +87,7 @@ public class TestBot extends Bot {
         gyroNavigator.init();
         driveTrain.init(DriveTrain.InitType.INIT_4WD);
         webCamera.init(WebCamera.InitType.INIT_FOR_FIND_GOLD);
+        skystoneFinder.init();
         // webCamNavigator.init();
     }
 
