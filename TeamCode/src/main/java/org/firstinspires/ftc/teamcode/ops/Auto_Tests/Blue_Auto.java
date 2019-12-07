@@ -37,7 +37,7 @@ import org.firstinspires.ftc.teamcode.bots.TestBot;
 import org.firstinspires.ftc.teamcode.components.DriveTrain;
 
 
-@Autonomous(name="Blue_Auto", group="gyrotest")
+@Autonomous(name="Blue_Auto", group="Auto_Tests")
 //@Disabled
 public class Blue_Auto extends LinearOpMode {
 

@@ -32,15 +32,15 @@ package org.firstinspires.ftc.teamcode.ops.Auto_Tests;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
-import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.bots.TestBot;
 import org.firstinspires.ftc.teamcode.components.DriveTrain;
+import org.firstinspires.ftc.teamcode.components.ConceptTensorFlowObjectDetectionWebcam;
 
 
-@Autonomous(name="Red_Auto", group="Auto_Tests")
+@Autonomous(name="WebcamTest", group="Auto_Tests")
 //@Disabled
-public class Red_Auto extends LinearOpMode {
+public class Webcam_Test extends LinearOpMode {
 
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
@@ -59,6 +59,7 @@ public class Red_Auto extends LinearOpMode {
         //robot.initAll();
         robot.driveTrain.init(DriveTrain.InitType.INIT_4WD);
         robot.gyroNavigator.init();
+        //robot.colorDetection.initColor();
         //robot.gyroNavigator2.init();
 
         robot.logger.logInfo("runOpMode", "===== [ Initialization Complete ]");
@@ -79,23 +80,9 @@ public class Red_Auto extends LinearOpMode {
            robot.driveTrain.gyroRotate(-90, 0.5, true, false);
            robot.driveTrain.encoderDrive(1, -10);
            robot.driveTrain.encoderDrive(1, 10); */
-
-           robot.driveTrain.crabEncoderLeft(0.5, 3);
-           robot.driveTrain.gyroRotate(-5, 0.2, true, false);
-           robot.driveTrain.pause(0.5);
-           robot.driveTrain.moveForward(0.85, -1);
-           robot.driveTrain.gyroRotate(90, 0.5, true, false);
-           robot.driveTrain.moveForward(0.7, 0.5);
-           robot.driveTrain.pause(1);
-           robot.grapple.servoMoveDown();
-           robot.grapple.servo2MoveDown();
-           robot.driveTrain.pause(2);
-           robot.driveTrain.moveBackward(1, 0.5);
-           //robot.driveTrain.move(.15,-1,1);
-           robot.driveTrain.gyroRotate(90, 0.5, true, false);
-           robot.grapple.servoMoveUp();
-           robot.grapple.servo2MoveUp();
-           robot.driveTrain.moveForward(0.8, 0.5);
+          while(robot.skystoneFinder.canSeeSkystone() == true){
+              robot.driveTrain.moveForward(1,1);
+          }
 
 
 
