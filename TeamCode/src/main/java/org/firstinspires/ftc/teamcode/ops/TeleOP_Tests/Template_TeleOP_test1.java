@@ -32,6 +32,7 @@ package org.firstinspires.ftc.teamcode.ops.TeleOP_Tests;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -86,6 +87,12 @@ public class Template_TeleOP_test1 extends LinearOpMode {
                 telemetry.addData("Right", "X (%.2f), Y (%.2f)", rightX, rightY);
 
 
+            }
+
+            if (robot.intake.isAvailable) {
+                while (gamepad1.right_trigger > 0) {
+                    robot.intake.setIntakePower(1);
+                }
             }
 
             // Show the elapsed game time.
