@@ -38,6 +38,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.bots.TestBot;
 import org.firstinspires.ftc.teamcode.components.DriveTrain;
+import org.firstinspires.ftc.teamcode.components.Intake;
 import org.firstinspires.ftc.teamcode.components.WebCamera;
 
 
@@ -60,6 +61,7 @@ public class Template_TeleOP_test1 extends LinearOpMode {
         //robot.initAll();
         robot.gyroNavigator.init();
         robot.driveTrain.init(DriveTrain.InitType.INIT_4WD);
+        robot.intake.init(Intake.InitType.INIT_INTAKE);
 
         robot.logger.logInfo("runOpMode", "===== [ Initialization Complete ]");
         telemetry.update();
@@ -90,8 +92,12 @@ public class Template_TeleOP_test1 extends LinearOpMode {
             }
 
             if (robot.intake.isAvailable) {
-                while (gamepad1.right_trigger > 0) {
+                if (gamepad1.right_trigger > 0) {
                     robot.intake.setIntakePower(1);
+                }
+                if(gamepad1.right_trigger <= 0)
+                {
+                    robot.intake.setIntakePower(0);
                 }
             }
 

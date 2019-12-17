@@ -80,7 +80,7 @@ public class TestBot extends Bot {
         grapple = new Grapple(logger, aOpMode, "servo1", "servo2");
         //colorDetection = new ColorDetection();
         skystoneFinder = new SkystoneFinder(logger, aOpMode);
-        intake = new Intake();
+        intake = new Intake(logger, aOpMode, "Right_Intake", "Left_Intake");
 
 
     }

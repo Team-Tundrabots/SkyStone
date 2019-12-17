@@ -30,9 +30,8 @@
 package org.firstinspires.ftc.teamcode.components;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
-import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 //@Disabled
 public class Intake extends BotComponent {
@@ -43,14 +42,15 @@ public class Intake extends BotComponent {
     public enum InitType {
         INIT_RIGHT_INTAKE,
         INIT_LEFT_INTAKE,
-        INIT_4WD
+        INIT_INTAKE
     }
 
     private boolean rightIntakeEnabled = true;
     private boolean leftIntakeEnabled = true;
 
-public Intake(){
-}
+    public Intake(){
+
+    }
 
     public Intake(Logger aLogger, OpMode aOpMode,
                   String rightIntakeName, String leftIntakeName) {
@@ -62,24 +62,24 @@ public Intake(){
     }
 
     public void init() {
-        init(DriveTrain.InitType.INIT_4WD);
+        init(InitType.INIT_INTAKE);
     }
 
-    public void init(DriveTrain.InitType initType) {
+    public void init(InitType initType) {
 
         switch (initType) {
 
-            case INIT_FRONT_MOTORS:
+            case INIT_RIGHT_INTAKE:
                 rightIntakeEnabled = (Right_Intake != null);
                 isAvailable = rightIntakeEnabled;
                 break;
 
-            case INIT_BACK_MOTORS:
+            case INIT_LEFT_INTAKE:
                 leftIntakeEnabled = (Left_Intake != null);
                 isAvailable = leftIntakeEnabled;
                 break;
 
-            case INIT_4WD:
+            case INIT_INTAKE:
                 rightIntakeEnabled = (Right_Intake != null);
                 leftIntakeEnabled = (Left_Intake != null);
                 isAvailable = rightIntakeEnabled && leftIntakeEnabled;
@@ -89,24 +89,18 @@ public Intake(){
     }
 
     public void setRightIntakePower(double power){
-        if (rightIntakeEnabled) {
             Right_Intake.setPower(power);
-        }
     }
 
     public void setLeftIntakePower(double power){
-        if (leftIntakeEnabled) {
             Left_Intake.setPower(power);
-        }
     }
 
     public void setIntakePower (double power){
-        if (leftIntakeEnabled) {
-            setLeftIntakePower(-power);
-        }
-        if (rightIntakeEnabled) {
-            setRightIntakePower(power);
-        }
+            //setLeftIntakePower(-power);
+            //setRightIntakePower(power);
+        Left_Intake.setPower(-power);
+        Right_Intake.setPower(power);
     }
 
 
