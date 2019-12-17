@@ -40,6 +40,7 @@ import org.firstinspires.ftc.teamcode.components.WebCamera;
 import org.firstinspires.ftc.teamcode.components.DriveTrain;
 import org.firstinspires.ftc.teamcode.components.Logger;
 import org.firstinspires.ftc.teamcode.components.WebCamNavigator;
+import org.firstinspires.ftc.teamcode.components.Ramp;
 
 public class TestBot extends Bot {
 
@@ -52,6 +53,7 @@ public class TestBot extends Bot {
 //    public GyroNavigator gyroNavigator2 = null;
     public WebCamNavigator webCamNavigator = null;
     public Grapple grapple = null;
+    public Ramp ramp = null;
     //public ColorSensor colorDetection = null;
     public SkystoneFinder skystoneFinder = null;
 
@@ -78,6 +80,7 @@ public class TestBot extends Bot {
         grapple = new Grapple(logger, aOpMode, "servo1", "servo2");
         //colorDetection = new ColorDetection();
         skystoneFinder = new SkystoneFinder(logger, aOpMode);
+        ramp = new Ramp(logger, aOpMode, "rampServo", "rampServo2");
 
 
     }
