@@ -99,8 +99,8 @@ public class Intake extends BotComponent {
     public void setIntakePower (double power){
             //setLeftIntakePower(-power);
             //setRightIntakePower(power);
-        Left_Intake.setPower(-power);
-        Right_Intake.setPower(power);
+        Left_Intake.setPower(power);
+        Right_Intake.setPower(-power);
     }
 
 
