@@ -41,13 +41,15 @@ public class Grapple extends BotComponent {
     public Servo servo2 = null;
     double SERVO_DOWN_POSITION = 0.77;
     double SERVO_UP_POSITION = 1;
+    double SERVO2_DOWN_POSITION = 0.77;
+    double SERVO2_UP_POSITION = 0.1;
 public Grapple(){
 }
 public Grapple(Logger aLogger, OpMode aOpMode, String servoName, String servoName2){
     super(aLogger, aOpMode);
     //define and initialize motors
     logger.logDebug("initservo", "IamWalrus");
-    servo = initServo(servoName, SERVO_UP_POSITION);
+    servo = initServo(servoName, SERVO2_UP_POSITION);
     servo2 = initServo(servoName2, SERVO_DOWN_POSITION);
     if(servo != null && servo2 != null){
         isAvailable = true;
@@ -58,15 +60,14 @@ public Grapple(Logger aLogger, OpMode aOpMode, String servoName, String servoNam
 
 public void servoMoveDown(){
     logger.logDebug("servoMoveDown", "walrus");
-    servo.setPosition(SERVO_DOWN_POSITION);
+    servo.setPosition(SERVO2_DOWN_POSITION);
 }
 
 public void servo2MoveDown(){
     servo2.setPosition(SERVO_UP_POSITION);
 }
 
-public void servoMoveUp(){
-    servo.setPosition(SERVO_UP_POSITION);
+public void servoMoveUp(){servo.setPosition(SERVO2_UP_POSITION);
 }
 
 public void servo2MoveUp(){
