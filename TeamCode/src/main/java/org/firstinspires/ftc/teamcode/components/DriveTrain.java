@@ -254,7 +254,6 @@ public class DriveTrain extends BotComponent {
 
     }
 
-
     public void disableEncoders() {
 
         if (frontMotorsEnabled) {
@@ -320,6 +319,21 @@ public class DriveTrain extends BotComponent {
         boolean useGyro = true;
         encoderDrive(power,leftInches, rightInches, timeoutSeconds, useGyro);
         
+    }
+
+    public void mechanumMotorDiagonalPower(double downDiagonal, double upDiagonal) {
+
+        double downD = downDiagonal;
+        double upD = upDiagonal;
+
+        if (frontMotorsEnabled) {
+            frontLeftMotor.setPower(downD);
+            frontRightMotor.setPower(upD);
+        }
+        if (backMotorsEnabled) {
+            backRightMotor.setPower(downD);
+            backLeftMotor.setPower(upD);
+        }
     }
 
     public void crabEncoderLeft(double power, double inches) {
@@ -431,6 +445,39 @@ public class DriveTrain extends BotComponent {
 
 
     }
+
+    public void encoderCrab (double inches, double power, double direction){
+
+        double timeoutSeconds = (1 / Math.abs(power)) * MAX_INCHES_PER_SECOND;
+
+        int newTarget;
+
+        resetEncoders();
+
+        ElapsedTime runtime = new ElapsedTime();
+
+        if (opModeIsActive()) {
+
+            if (frontMotorsEnabled) {
+                newTarget = backRightMotor.getTargetPosition() + (int) (inches * COUNTS_PER_INCH);
+                backRightMotor.setTargetPosition(newTarget);
+                backRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            }
+        }
+        //left=0, right=1
+        if (direction == 0) {
+            mechanumMotorDiagonalPower(power, -power);
+        }
+
+        if (direction == 1) {
+            mechanumMotorDiagonalPower(-power, power);
+        }
+
+        stop();
+
+        disableEncoders();
+    }
+
 
     public void encoderDrive(double power,
                              double leftInches, double rightInches,
@@ -574,7 +621,7 @@ public class DriveTrain extends BotComponent {
         while (opModeIsActive() && !rotationComplete) {
 
             if (Math.abs((int)currentAngle - (int)targetAngle) < 5 ) {
-                adjustedPower = 0.125;
+                adjustedPower = 0.14;
             }
 
             logger.logDebug("gyroRotate", "degrees: %f, power: %f, adjustedPower: %f", degrees, power, adjustedPower);

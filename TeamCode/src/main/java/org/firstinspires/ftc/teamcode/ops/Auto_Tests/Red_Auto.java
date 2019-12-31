@@ -80,8 +80,9 @@ public class Red_Auto extends LinearOpMode {
            robot.driveTrain.encoderDrive(1, -10);
            robot.driveTrain.encoderDrive(1, 10); */
 
-           robot.driveTrain.crabLeft(0.15);
-        //   robot.driveTrain.gyroRotate(5, 0.5, true, false);
+           //robot.driveTrain.crabLeft(0.15);
+           robot.driveTrain.encoderCrab(1, 0.5, 0);
+           robot.driveTrain.gyroRotate(1, 0.5, true, false);
            robot.driveTrain.pause(0.5);
            robot.driveTrain.moveForward(0.8, -1);
            robot.driveTrain.gyroRotate(90, 0.5, true, false);
