@@ -36,6 +36,7 @@ import org.firstinspires.ftc.teamcode.components.Grapple;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import org.firstinspires.ftc.teamcode.components.GyroNavigator;
 import org.firstinspires.ftc.teamcode.components.Intake;
+import org.firstinspires.ftc.teamcode.components.Ramp;
 import org.firstinspires.ftc.teamcode.components.SkystoneFinder;
 import org.firstinspires.ftc.teamcode.components.WebCamera;
 import org.firstinspires.ftc.teamcode.components.DriveTrain;
@@ -56,6 +57,7 @@ public class TestBot extends Bot {
     //public ColorSensor colorDetection = null;
     public SkystoneFinder skystoneFinder = null;
     public Intake intake = null;
+    public Ramp ramp = null;
 
     /* Constructor */
     public TestBot() {
@@ -81,6 +83,7 @@ public class TestBot extends Bot {
         //colorDetection = new ColorDetection();
         skystoneFinder = new SkystoneFinder(logger, aOpMode);
         intake = new Intake(logger, aOpMode, "Right_Intake", "Left_Intake");
+        ramp = new Ramp(logger, aOpMode, "rampServo", "rampServo2");
 
 
     }
