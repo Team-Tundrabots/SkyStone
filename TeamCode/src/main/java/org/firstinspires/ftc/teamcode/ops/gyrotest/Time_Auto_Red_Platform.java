@@ -74,12 +74,49 @@ public class Time_Auto_Red_Platform extends LinearOpMode {
         robot.driveTrain.pause(1);
         robot.driveTrain.pause(1);
         robot.driveTrain.moveForward(0.5,  .75);
+        runtime.reset();
+        while(runtime.seconds() < 60){
+            robot.driveTrain.moveForward(0.5, 1);
+            if(robot.skystoneFinder.canSeeSkystone()){
+                robot.
 
+            }
+        }
 
+    //With Phone Camera Mounted on Side Pannel
 
         //robot.logger.logInfo("runOpMode", "Angles: 1:%f", angle1);
 
-        //  }
+        //  with robot in square touching blue bridge and wall
+
+        // with robot orientated with intake towards wall
+
+        // move back 1 tile
+        robot.driveTrain.moveBackward(.1, .5);
+        // rotate 45 degrees away from bridge
+        robot.driveTrain.gyroRotate(-45, .5);
+        // stop do vision
+            //Get x-y-z coordinates from vuforia of skystone
+
+            //If no coordinates, move to set position
+
+            //If corrdinate is found (found x and y position), then find the x-y-z position of skystone
+
+            //If x - y matches (23< x <25)recorded position for skystone
+
+
+
+        // if skystone in position 1 (to be determined what position 1 is in coordinates)
+        //    execute sequence picking up from block 1 position
+        // if skystone in position 2
+        //    execute sequence picking up from block 2 position
+        // if skystone in position 3
+        //    execute sequence picking up from block 2 position
+
+
+        // after block pickup, return to set position which is tile adjacent to
+        //   alliance and neutral bridge
+
 
         // Show the elapsed game time.
         robot.logger.logInfo("runOpMode", "===== [ Autonomous Complete ] Run Time: %s", runtime.toString());
