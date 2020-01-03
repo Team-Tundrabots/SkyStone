@@ -84,6 +84,14 @@ public class Template_TeleOP_test1 extends LinearOpMode {
                 telemetry.addData("Status", "Run Time: " + runtime.toString());
                 telemetry.addData("Left", "X (%.2f), Y (%.2f)", leftX, leftY);
                 telemetry.addData("Right", "X (%.2f), Y (%.2f)", rightX, rightY);
+		        if(gamepad1.a){
+		            robot.ramp.rampUp();
+		            robot.ramp.ramp2Up();
+                }
+		        if(gamepad1.b){
+		            robot.ramp.rampDown();
+		            robot.ramp.ramp2Down();
+                }
 
 
             }
