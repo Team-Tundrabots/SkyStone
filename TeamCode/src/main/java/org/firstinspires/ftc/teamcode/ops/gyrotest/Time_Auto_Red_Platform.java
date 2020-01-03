@@ -10,7 +10,7 @@ import org.firstinspires.ftc.teamcode.components.DriveTrain;
 
 @Autonomous(name="Time_Auto_Red_Platform", group="gyrotest")
 //@Disabled
-public class Matthew_Auto extends LinearOpMode {
+public class Time_Auto_Red_Platform extends LinearOpMode {
 
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
