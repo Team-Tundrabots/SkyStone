@@ -40,6 +40,7 @@ public class Grapple extends BotComponent {
     public Servo servo = null;
     public Servo servo2 = null;
     double SERVO_DOWN_POSITION = 0.77;
+    double SERVO1_UP_POSITION = 0;
     double SERVO_UP_POSITION = 1;
 public Grapple(){
 }

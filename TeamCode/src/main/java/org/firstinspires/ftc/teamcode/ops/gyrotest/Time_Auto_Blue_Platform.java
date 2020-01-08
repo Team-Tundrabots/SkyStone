@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.ops.gyrotest;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -50,8 +51,8 @@ public class Time_Auto_Blue_Platform extends LinearOpMode {
            robot.driveTrain.encoderDrive(1, -10);
            robot.driveTrain.encoderDrive(1, 10); */
 
-         //Move the robot down the field twoards the build platform
-        robot.driveTrain.moveBackward(.85, .75);
+        //Move the robot down the field twoards the build platform
+        robot.driveTrain.moveBackward(.85, -.75);
 
         //Rotate the back of the robot twoards the build platform
         robot.driveTrain.gyroRotate(85, .75, true, false);
@@ -90,13 +91,14 @@ public class Time_Auto_Blue_Platform extends LinearOpMode {
 
         runtime.reset();
 
-        while(runtime.seconds() < 60){
-            robot.driveTrain.moveForward(0.5, 1);
-            if(robot.skystoneFinder.canSeeSkystone()){
-                robot.driveTrain.gyroRotate(.5, .5);
 
-            }
-        }
+        //while(runtime.seconds() < 60){
+          //  robot.driveTrain.moveForward(0.5, 1);
+            //if(robot.skystoneFinder.canSeeSkystone()){
+              //  robot.driveTrain.gyroRotate(.5, .5);
+
+         //   }
+       // }
 
         //With Phone Camera Mounted on Side Pannel
 

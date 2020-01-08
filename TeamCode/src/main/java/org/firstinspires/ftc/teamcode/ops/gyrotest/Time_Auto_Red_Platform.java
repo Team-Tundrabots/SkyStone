@@ -51,26 +51,26 @@ public class Time_Auto_Red_Platform extends LinearOpMode {
            robot.driveTrain.encoderDrive(1, 10); */
 
         //Move the robot down the field twoards the build platform
-        robot.driveTrain.moveBackward(.85, .75);
+        robot.driveTrain.moveBackward(.95, -.75);
 
         //Rotate the back of the robot twoards the build platform
-        robot.driveTrain.gyroRotate(-95, .75, true, false);
+        robot.driveTrain.gyroRotate(-85, .75, true, false);
 
         //Move the robot so that it is touching the build platform
-        robot.driveTrain.moveBackward(0.7, 0.5);
+        robot.driveTrain.moveBackward(0.7, -0.5);
 
         //Pause to let the robot stop moving
-        robot.driveTrain.pause(.25);
+        robot.driveTrain.pause(2 );
 
         //Move the servos down to grapple the build platform
         robot.grapple.servoMoveDown();
         robot.grapple.servo2MoveDown();
 
         //Pause
-        robot.driveTrain.pause(.25);
+        robot.driveTrain.pause(2);
 
         //Pull the platform twoards the build zone
-        robot.driveTrain.moveForward(1.25, 0.5);
+        robot.driveTrain.moveForward(1.25, -0.5);
 
         //Move because the robot can not fine adjust to make the gyro happy with the platform in tow
         robot.driveTrain.move(1, -1, 1);
@@ -88,6 +88,7 @@ public class Time_Auto_Red_Platform extends LinearOpMode {
         //Move the robot to park under the skybridge
         robot.driveTrain.moveForward(0.5,  .75);
 
+        /*
         runtime.reset();
 
         while(runtime.seconds() < 60){
@@ -132,7 +133,7 @@ public class Time_Auto_Red_Platform extends LinearOpMode {
         // after block pickup, return to set position which is tile adjacent to
         //   alliance and neutral bridge
 
-
+*/
         // Show the elapsed game time.
         robot.logger.logInfo("runOpMode", "===== [ Autonomous Complete ] Run Time: %s", runtime.toString());
         telemetry.update();
