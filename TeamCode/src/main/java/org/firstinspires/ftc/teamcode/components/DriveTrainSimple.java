@@ -123,7 +123,7 @@ public class DriveTrainSimple extends BotComponent {
     }
 
     private void setMotorTarget(DcMotor motor, double inches) {
-        int target = motor.getCurrentPosition() - (int) (inches * COUNTS_PER_INCH);
+        int target = motor.getCurrentPosition() + (int) (inches * COUNTS_PER_INCH);
         motor.setTargetPosition(target);
         motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
@@ -134,10 +134,10 @@ public class DriveTrainSimple extends BotComponent {
 
         resetEncoders();
 
-        setMotorTarget(motorBL, leftInches);
-        setMotorTarget(motorBR, rightInches);
         setMotorTarget(motorFL, leftInches);
         setMotorTarget(motorFR, rightInches);
+        setMotorTarget(motorBL, leftInches);
+        setMotorTarget(motorBR, rightInches);
 
         ElapsedTime runtime = new ElapsedTime();
 
@@ -146,10 +146,10 @@ public class DriveTrainSimple extends BotComponent {
             // reset the timeout time and start motion.
             runtime.reset();
 
-            motorBL.setPower(power);
-            motorBR.setPower(power);
             motorFL.setPower(power);
             motorFR.setPower(power);
+            motorBL.setPower(power);
+            motorBR.setPower(power);
 
             logger.setDebugFilter("encoderDrive");
 
@@ -208,10 +208,10 @@ public class DriveTrainSimple extends BotComponent {
 
         resetEncoders();
 
-        setMotorTarget(motorBL, direction * inches);
-        setMotorTarget(motorBR, direction * inches);
-        setMotorTarget(motorFL, direction * inches);
-        setMotorTarget(motorFR, direction * inches);
+        setMotorTarget(motorFL,  direction * inches);
+        setMotorTarget(motorFR,  direction * inches);
+        setMotorTarget(motorBL, -1 * direction * inches);
+        setMotorTarget(motorBR, -1 * direction * inches);
 
         ElapsedTime runtime = new ElapsedTime();
 
@@ -224,10 +224,10 @@ public class DriveTrainSimple extends BotComponent {
 
             logger.setDebugFilter(funcName);
 
-            while (opModeIsActive() &&
-                    (runtime.seconds() < timeoutSeconds) &&
-                    (motorFL.isBusy() || motorBR.isBusy()) &&
-                    (motorFR.isBusy() || motorBL.isBusy())) {
+            while ( opModeIsActive() && (runtime.seconds() < timeoutSeconds) &&
+                    !(motorFL.isBusy() || motorBR.isBusy() || motorFR.isBusy() || motorBL.isBusy()) )
+
+            {
 
                 logger.logDebug(funcName, "Inches: %f", inches);
                 logger.logDebug(funcName, "Target: FL:%7d   FR:%7d", motorFL.getTargetPosition(), motorFR.getTargetPosition());
