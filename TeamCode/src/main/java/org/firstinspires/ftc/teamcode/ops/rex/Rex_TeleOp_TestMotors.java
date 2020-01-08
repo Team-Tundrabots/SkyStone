@@ -58,7 +58,7 @@ public class Rex_TeleOp_TestMotors extends LinearOpMode
         robot = new SimpleBot (this, logEnableTrace, logToTelemetry);
         robot.logger.logInfo("runOpMode", "===== [ Start Initializing ]");
 
-        robot.driveTrain.init(DriveTrain.InitType.INIT_4WD);
+        //robot.driveTrain.init(DriveTrain.InitType.INIT_4WD);
 
         robot.logger.logInfo("runOpMode", "===== [ Initialization Complete ]");
         telemetry.update();
@@ -112,19 +112,19 @@ public class Rex_TeleOp_TestMotors extends LinearOpMode
 
             if (robot.driveTrain.isAvailable) {
                 if (activateFrontMotors) {
-                    robot.driveTrain.frontLeftMotor.setPower(leftY);
-                    robot.driveTrain.frontRightMotor.setPower(rightY);
+                    robot.driveTrain.motorFL.setPower(leftY);
+                    robot.driveTrain.motorFR.setPower(rightY);
                 } else {
-                    robot.driveTrain.frontLeftMotor.setPower(0);
-                    robot.driveTrain.frontRightMotor.setPower(0);
+                    robot.driveTrain.motorFL.setPower(0);
+                    robot.driveTrain.motorFR.setPower(0);
                 }
 
                 if (activateBackMotors) {
-                    robot.driveTrain.backLeftMotor.setPower(leftY);
-                    robot.driveTrain.backRightMotor.setPower(rightY);
+                    robot.driveTrain.motorBL.setPower(leftY);
+                    robot.driveTrain.motorBR.setPower(rightY);
                 } else {
-                    robot.driveTrain.backLeftMotor.setPower(0);
-                    robot.driveTrain.backRightMotor.setPower(0);
+                    robot.driveTrain.motorBL.setPower(0);
+                    robot.driveTrain.motorBR.setPower(0);
                 }
             }
 
@@ -137,16 +137,16 @@ public class Rex_TeleOp_TestMotors extends LinearOpMode
             telemetry.addData("Front Motors", "%b", activateFrontMotors);
 
             if (robot.driveTrain.isAvailable) {
-                double frontLPower = robot.driveTrain.frontLeftMotor.getPower();
-                double frontRPower = robot.driveTrain.frontRightMotor.getPower();
+                double frontLPower = robot.driveTrain.motorFL.getPower();
+                double frontRPower = robot.driveTrain.motorFR.getPower();
                 telemetry.addData("Front", "L (%.2f), R (%.2f)", frontLPower, frontRPower);
             }
 
             telemetry.addData("Back Motors", "%b", activateBackMotors);
 
             if (robot.driveTrain.isAvailable) {
-                double backLPower = robot.driveTrain.backLeftMotor.getPower();
-                double backRPower = robot.driveTrain.backRightMotor.getPower();
+                double backLPower = robot.driveTrain.motorBL.getPower();
+                double backRPower = robot.driveTrain.motorBR.getPower();
                 telemetry.addData("Back", "L (%.2f), R (%.2f)", backLPower, backRPower);
             }
 

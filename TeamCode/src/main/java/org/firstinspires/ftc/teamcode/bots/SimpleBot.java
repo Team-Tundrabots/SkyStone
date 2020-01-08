@@ -31,22 +31,14 @@ package org.firstinspires.ftc.teamcode.bots;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
-import org.firstinspires.ftc.teamcode.components.DriveTrain;
-import org.firstinspires.ftc.teamcode.components.Grapple;
-import org.firstinspires.ftc.teamcode.components.GyroNavigator;
-import org.firstinspires.ftc.teamcode.components.Intake;
-import org.firstinspires.ftc.teamcode.components.Logger;
-import org.firstinspires.ftc.teamcode.components.Ramp;
-import org.firstinspires.ftc.teamcode.components.SkystoneFinder;
-import org.firstinspires.ftc.teamcode.components.WebCamNavigator;
-import org.firstinspires.ftc.teamcode.components.WebCamera;
+import org.firstinspires.ftc.teamcode.components.*;
 
 public class SimpleBot extends Bot {
 
     /* BotComponents */
 
     public Logger logger = null;
-    public DriveTrain driveTrain = null;
+    public DriveTrainSimple driveTrain = null;
 
     /* Constructor */
     public SimpleBot() {
@@ -60,13 +52,13 @@ public class SimpleBot extends Bot {
     public SimpleBot(OpMode aOpMode, boolean enableTrace, boolean enableTelemetry) {
 
         logger = new Logger("SimpleBot", aOpMode, enableTrace, enableTelemetry);
-        driveTrain = new DriveTrain(logger, aOpMode, "frontLeftMotor", "frontRightMotor",
+        driveTrain = new DriveTrainSimple(logger, aOpMode, "frontLeftMotor", "frontRightMotor",
                 "backLeftMotor", "backRightMotor");
 
     }
 
     public void initAll() {
-        driveTrain.init(DriveTrain.InitType.INIT_4WD);
+        // driveTrain.init(DriveTrain.InitType.INIT_4WD);
     }
 
 }

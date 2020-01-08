@@ -58,7 +58,7 @@ public class Rex_TeleOp_Mechanum_Test extends LinearOpMode {
 
         /* Use either robot.initAll or select only the components that need initializing below */
         //robot.initAll();
-        robot.driveTrain.init(DriveTrain.InitType.INIT_4WD);
+        //robot.driveTrain.init(DriveTrain.InitType.INIT_4WD);
 
         robot.logger.logInfo("runOpMode", "===== [ Initialization Complete ]");
         telemetry.update();
