@@ -63,7 +63,7 @@ public class Time_Auto_Red_Platform extends LinearOpMode {
         robot.driveTrain.pause(2 );
 
         //Move the servos down to grapple the build platform
-        robot.grapple.servoMoveDown();
+        //robot.grapple.servoMoveDown();
         robot.grapple.servo2MoveDown();
 
         //Pause
@@ -73,11 +73,13 @@ public class Time_Auto_Red_Platform extends LinearOpMode {
         robot.driveTrain.moveForward(1.25, -0.5);
 
         //Move because the robot can not fine adjust to make the gyro happy with the platform in tow
-        robot.driveTrain.move(1, -1, 1);
+        //robot.driveTrain.move(1, -1, 1);
+
+        robot.driveTrain.gyroRotate(95, .5);
 
         //Move the servos up to release the platform
-        robot.grapple.servoMoveUp();
-        robot.grapple.servo2MoveUp();
+        //robot.grapple.servoMoveUp();
+        //robot.grapple.servo2MoveUp();
 
         //Push the build platform to the wall to score it
         robot.driveTrain.moveBackward(.5, .75);
@@ -86,8 +88,9 @@ public class Time_Auto_Red_Platform extends LinearOpMode {
         robot.driveTrain.pause(.25);
 
         //Move the robot to park under the skybridge
-        robot.driveTrain.moveForward(0.5,  .75);
+        robot.driveTrain.moveForward(0.9,  .75);
 
+        robot.driveTrain.pause(5 );
         /*
         runtime.reset();
 
