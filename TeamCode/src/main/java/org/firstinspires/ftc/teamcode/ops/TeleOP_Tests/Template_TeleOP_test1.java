@@ -40,6 +40,7 @@ import org.firstinspires.ftc.teamcode.bots.TestBot;
 import org.firstinspires.ftc.teamcode.components.DriveTrain;
 import org.firstinspires.ftc.teamcode.components.Intake;
 import org.firstinspires.ftc.teamcode.components.WebCamera;
+import org.firstinspires.ftc.teamcode.components.Ramp;
 
 
 @TeleOp(name="testTeleOP1", group="template")

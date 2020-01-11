@@ -8,9 +8,9 @@ import org.firstinspires.ftc.teamcode.bots.TestBot;
 import org.firstinspires.ftc.teamcode.components.DriveTrain;
 
 
-@Autonomous(name="Time_Auto_Red_Platform", group="gyrotest")
+@Autonomous(name="Plan_B_Autonomous_Blue_Side", group="gyrotest")
 //@Disabled
-public class Time_Auto_Red_Platform extends LinearOpMode {
+public class Plan_B_Autonomous_Blue_Side extends LinearOpMode {
 
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
@@ -50,14 +50,7 @@ public class Time_Auto_Red_Platform extends LinearOpMode {
            robot.driveTrain.encoderDrive(1, -10);
            robot.driveTrain.encoderDrive(1, 10); */
 
-        //Move the robot down the field twoards the build platform
-        robot.driveTrain.moveBackward(.95, -.75);
-
-        //Rotate the back of the robot twoards the build platform
-        robot.driveTrain.gyroRotate(-88, .75, true, false);
-
-        //Move the robot so that it is touching the build platform
-        robot.driveTrain.moveBackward(0.72, -0.5);
+        robot.driveTrain.moveBackward(0.63, -0.5);
 
         //Pause to let the robot stop moving
         robot.driveTrain.pause(2 );
@@ -70,12 +63,10 @@ public class Time_Auto_Red_Platform extends LinearOpMode {
         robot.driveTrain.pause(2);
 
         //Pull the platform twoards the build zone
-        robot.driveTrain.moveForward(1.25, -0.5);
+        robot.driveTrain.moveForward(1.35, -0.5);
 
         //Move because the robot can not fine adjust to make the gyro happy with the platform in tow
-        robot.driveTrain.move(1.1, -1, 1);
-
-        //robot.driveTrain.gyroRotate(95, .5);
+        robot.driveTrain.move(1.1, 1, -1);
 
         //Move the servos up to release the platform
         robot.grapple.servoMoveUp();
@@ -88,9 +79,13 @@ public class Time_Auto_Red_Platform extends LinearOpMode {
         robot.driveTrain.pause(.25);
 
         //Move the robot to park under the skybridge
-        robot.driveTrain.moveForward(0.55,  -.75);
+        robot.driveTrain.moveForward(.9,  -.75);
 
         robot.driveTrain.crabRight(0.6);
+
+        stop();
+
+
 
         stop();
         /*
