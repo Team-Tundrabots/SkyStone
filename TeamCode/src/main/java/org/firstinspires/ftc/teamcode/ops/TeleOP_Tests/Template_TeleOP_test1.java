@@ -92,6 +92,17 @@ public class Template_TeleOP_test1 extends LinearOpMode {
             }
 
             if (robot.intake.isAvailable) {
+                if (gamepad1.left_trigger > 0) {
+                    robot.intake.setIntakePower(-1);
+                }
+                if(gamepad1.left_trigger <= 0)
+                {
+                    robot.intake.setIntakePower(0);
+                }
+            }
+
+
+            if (robot.intake.isAvailable) {
                 if (gamepad1.right_trigger > 0) {
                     robot.intake.setIntakePower(1);
                 }
@@ -99,6 +110,15 @@ public class Template_TeleOP_test1 extends LinearOpMode {
                 {
                     robot.intake.setIntakePower(0);
                 }
+            }
+
+            if(gamepad1.right_bumper){
+                robot.ramp.rampUp();
+                robot.ramp.ramp2Up();
+            }
+            if(gamepad1.left_bumper){
+                robot.ramp.rampDown();
+                robot.ramp.ramp2Down();
             }
 
             // Show the elapsed game time.
