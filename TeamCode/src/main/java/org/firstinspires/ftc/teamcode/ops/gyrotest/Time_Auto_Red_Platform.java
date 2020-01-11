@@ -82,15 +82,17 @@ public class Time_Auto_Red_Platform extends LinearOpMode {
         robot.grapple.servo2MoveUp();
 
         //Push the build platform to the wall to score it
-        robot.driveTrain.moveBackward(.7, -.75);
+        robot.driveTrain.moveBackward(.72, -.75);
 
         //Pause to let the robot stop moving
         robot.driveTrain.pause(.25);
 
         //Move the robot to park under the skybridge
-        robot.driveTrain.moveForward(0.6,  -.75);
+        robot.driveTrain.moveForward(0.55,  -.75);
 
-        robot.driveTrain.crabRight(0.4);
+        robot.driveTrain.crabRight(0.6);
+        
+        stop();
         /*
         runtime.reset();
 
