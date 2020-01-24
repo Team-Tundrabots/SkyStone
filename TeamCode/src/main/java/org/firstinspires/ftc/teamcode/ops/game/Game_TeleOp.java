@@ -60,15 +60,15 @@ public class Game_TeleOp extends LinearOpMode {
 
         /* Use either robot.initAll or select only the components that need initializing below */
         //robot.initAll();
-        robot.gyroNavigator.init();
+
+        // Wait for the game to start (driver presses PLAY)
+        waitForStart();
+
         robot.driveTrain.init(DriveTrain.InitType.INIT_4WD);
         robot.intake.init(Intake.InitType.INIT_INTAKE);
 
         robot.logger.logInfo("runOpMode", "===== [ Initialization Complete ]");
         telemetry.update();
-
-        // Wait for the game to start (driver presses PLAY)
-        waitForStart();
 
         robot.logger.logInfo("runOpMode", "===== [ Start TeleOp ]");
         runtime.reset();
@@ -119,7 +119,6 @@ public class Game_TeleOp extends LinearOpMode {
             }
             if(gamepad1.right_bumper){
                 robot.ramp.rampDown();
-                robot.ramp.ramp2Down();
             }
 
             if(gamepad1.x){

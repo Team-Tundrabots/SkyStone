@@ -55,11 +55,37 @@ public Ramp(Logger aLogger, OpMode aOpMode, String servoName, String servoName2)
 
 public void rampDown(){
     logger.logDebug("servoMoveDown", "walrus");
-    rampServo.setPosition(SERVO_DOWN_POSITION);
-}
+    rampServo.setPosition(.9);
+    rampServo2.setPosition(.9);
+    pause(0.02);
+    rampServo.setPosition(.8);
+    rampServo2.setPosition(.8);
+    pause(0.02);
+    rampServo.setPosition(.7);
+    rampServo2.setPosition(.7);
+    pause(0.02);
+    rampServo.setPosition(.6);
+    rampServo2.setPosition(.6);
+    pause(0.02);
+    rampServo.setPosition(.5);
+    rampServo2.setPosition(.5);
+    pause(0.02);
+    rampServo.setPosition(.4);
+    rampServo2.setPosition(.4);
+    pause(0.02);
+    rampServo.setPosition(.3);
+    rampServo2.setPosition(.3);
+    pause(0.02);
+    rampServo.setPosition(.2);
+    rampServo2.setPosition(.2);
+    pause(0.02);
+    rampServo.setPosition(.1);
+    rampServo2.setPosition(.1);
+    pause(0.02);
+    rampServo.setPosition(0);
+    rampServo2.setPosition(0);
+    pause(0.02);
 
-public void ramp2Down(){
-    rampServo2.setPosition(SERVO_DOWN_POSITION);
 }
 
 public void rampUp(){
