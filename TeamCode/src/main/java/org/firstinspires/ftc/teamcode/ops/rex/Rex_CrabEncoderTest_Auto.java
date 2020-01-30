@@ -27,44 +27,55 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package org.firstinspires.ftc.teamcode.bots;
+package org.firstinspires.ftc.teamcode.ops.rex;
 
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
-import org.firstinspires.ftc.teamcode.components.*;
+import org.firstinspires.ftc.teamcode.bots.SimpleBot;
 
-public class SimpleBot extends Bot {
 
-    /* BotComponents */
+@Autonomous(name="Rex_CrabEncoderTest_Auto", group="rex")
+//@Disabled
+public class Rex_CrabEncoderTest_Auto extends LinearOpMode {
 
-    public Logger logger = null;
-    public DriveTrain driveTrain = null;
-    public DriveTrainSimple driveTrainSimple = null;
+    // Declare OpMode members.
+    private ElapsedTime runtime = new ElapsedTime();
+    private SimpleBot robot = null;
+    private boolean logEnableTrace = true;
+    private boolean logToTelemetry = true;
 
-    /* Constructor */
-    public SimpleBot() {
+
+    @Override
+    public void runOpMode() {
+
+        robot = new SimpleBot(this, logEnableTrace, logToTelemetry);
+
+        robot.logger.logInfo("runOpMode", "===== [ Start Initializing ]");
+
+        /* Use either robot.initAll or select only the components that need initializing below */
+        robot.initAll();
+
+        robot.logger.logInfo("runOpMode", "===== [ Initialization Complete ]");
+        telemetry.update();
+
+        // Wait for the game to start (driver presses PLAY)
+        waitForStart();
+
+        robot.logger.logInfo("runOpMode", "===== [ Start Autonomous ]");
+        runtime.reset();
+
+
+        /********** Put Your Code Here **********/
+
+        robot.driveTrainSimple.crabByEncoderLeft(.5,12);
+        sleep(2000);
+        robot.driveTrainSimple.crabByEncoderRight(.5,12);
+
+        // Show the elapsed game time.
+        robot.logger.logInfo("runOpMode", "===== [ Autonomous Complete ] Run Time: %s", runtime.toString());
+        telemetry.update();
 
     }
-
-    public SimpleBot(OpMode aOpMode) {
-        this(aOpMode, false, false);
-    }
-
-    public SimpleBot(OpMode aOpMode, boolean enableTrace, boolean enableTelemetry) {
-
-        logger = new Logger("SimpleBot", aOpMode, enableTrace, enableTelemetry);
-        driveTrain = new DriveTrain(logger, aOpMode, "frontLeftMotor", "frontRightMotor",
-                "backLeftMotor", "backRightMotor");
-
-        driveTrainSimple = new DriveTrainSimple(logger, aOpMode, "frontLeftMotor", "frontRightMotor",
-                "backLeftMotor", "backRightMotor");
-
-    }
-
-    public void initAll() {
-        driveTrain.init(DriveTrain.InitType.INIT_4WD);
-        driveTrainSimple.init();
-    }
-
 }
-
