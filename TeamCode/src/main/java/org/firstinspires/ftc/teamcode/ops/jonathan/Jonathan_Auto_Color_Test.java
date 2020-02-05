@@ -72,27 +72,48 @@ public class Jonathan_Auto_Color_Test extends LinearOpMode {
 
         double speedFactor = 0.5;
         double increment = 0.1;
+        boolean found = false;
 
 
         /********** Put Your Code Here **********/
         if (robot.colorFinder.isAvailable) {
 
+            robot.driveTrainSimple.driveByEncoder(0.5, 10);
+
             double distance = robot.colorFinder.rightDistance.getDistance(DistanceUnit.CM);
 
-            while (opModeIsActive() && distance > (double)4.0) {
+            while (opModeIsActive())
+            {
+                    while(distance > (double)2.0) {
 
-                if (speedFactor < 1) {
-                    speedFactor += increment;
-                    robot.driveTrainSimple.setPower(speedFactor, -0.25, 0.30, 0.20, -.25);
+                        if (speedFactor < 1) {
+                            speedFactor += increment;
+                            robot.driveTrainSimple.setPower(speedFactor, -0.25, 0.30, 0.20, -.25);
+                        }
+                        distance = robot.colorFinder.rightDistance.getDistance(DistanceUnit.CM);
+                    }
+
+                while(!found){
+                    robot.driveTrainSimple.driveByEncoder(0.5, 2);
+                    if(robot.colorFinder.rightColor.alpha() > 3700 && robot.colorFinder.rightColor.alpha() < 3900){
+                        if(robot.colorFinder.rightColor.red() > 900 && robot.colorFinder.rightColor.red() < 1100){
+                            if(robot.colorFinder.rightColor.green() > 1700 && robot.colorFinder.rightColor.green() < 1900){
+                                if(robot.colorFinder.rightColor.blue() > 900 && robot.colorFinder.rightColor.blue() < 1100){
+                                    robot.driveTrainSimple.crabByEncoderLeft(1,20);
+                                    found = true;
+                                }
+                            }
+                        }
+                    }
                 }
+                robot.driveTrainSimple.crabByEncoderLeft(1,20);
 
-                distance = robot.colorFinder.rightDistance.getDistance(DistanceUnit.CM);
 
-                if (robot.colorFinder.rightColor.)
+                //distance = robot.colorFinder.rightDistance.getDistance(DistanceUnit.CM);
+
 
 
                 robot.logger.logInfo("runOpMode", "distance: %f", distance);
-
 
                 // send the info back to driver station using telemetry function.
                 telemetry.addData("Distance (cm)",
