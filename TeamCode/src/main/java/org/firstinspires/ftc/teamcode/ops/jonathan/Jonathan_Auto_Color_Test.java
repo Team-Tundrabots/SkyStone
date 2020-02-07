@@ -92,7 +92,7 @@ public class Jonathan_Auto_Color_Test extends LinearOpMode {
                         }
                         distance = robot.colorFinder.rightDistance.getDistance(DistanceUnit.CM);
                     }
-
+/*
                 while(!found){
                     robot.driveTrainSimple.driveByEncoder(0.5, 2);
                     if(robot.colorFinder.rightColor.alpha() > 3700 && robot.colorFinder.rightColor.alpha() < 3900){
@@ -107,6 +107,17 @@ public class Jonathan_Auto_Color_Test extends LinearOpMode {
                     }
                 }
                 robot.driveTrainSimple.crabByEncoderLeft(1,20);
+
+ */
+                while(!found){
+                    if(robot.colorFinder.rightColor.argb() > 40 && robot.colorFinder.rightColor.argb() < 75){
+                        robot.driveTrainSimple.driveByEncoder(0.5, 2);
+                    }
+                    else{
+                        robot.driveTrainSimple.crabByEncoderLeft(1, 20);
+                        found = true;
+                    }
+                }
 
 
                 //distance = robot.colorFinder.rightDistance.getDistance(DistanceUnit.CM);
