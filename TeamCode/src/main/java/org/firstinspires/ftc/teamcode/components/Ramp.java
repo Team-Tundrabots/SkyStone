@@ -69,6 +69,9 @@ public void rampDown(double x){
     rampServo1.setPosition(x);
 }
 
+
+
+
 /*
 USE THIS FOR GOING DOWN (COPY PASTE)
 

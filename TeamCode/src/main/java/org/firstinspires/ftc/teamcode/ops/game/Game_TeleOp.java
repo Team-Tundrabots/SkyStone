@@ -75,6 +75,11 @@ public class Game_TeleOp extends LinearOpMode {
         robot.logger.logInfo("runOpMode", "===== [ Start TeleOp ]");
         runtime.reset();
 
+        boolean rampUp = false;
+        boolean rampDown = false;
+        double rampPosition = 1;
+
+
         while (opModeIsActive()) {
 
 
@@ -115,68 +120,41 @@ public class Game_TeleOp extends LinearOpMode {
             }
 
             if(gamepad1.left_bumper){
-                robot.ramp.rampUp();
-                robot.ramp.ramp2Up();
+                rampUp = true;
+                rampDown = false;
             }
-            if(gamepad1.right_bumper){
-                robot.ramp.rampDown(0.8);
-                robot.ramp.ramp2Down(0.8);
-                sleep(50);
-                robot.ramp.rampDown(0.775);
-                robot.ramp.ramp2Down(0.775);
-                sleep(50);
-                robot.ramp.rampDown(0.75);
-                robot.ramp.ramp2Down(0.75);
-                sleep(50);
-                robot.ramp.rampDown(0.725);
-                robot.ramp.ramp2Down(0.725);
-                sleep(50);
-                robot.ramp.rampDown(0.7);
-                robot.ramp.ramp2Down(0.7);
-                sleep(50);
-                robot.ramp.rampDown(0.675);
-                robot.ramp.ramp2Down(0.675);
-                sleep(50);
-                robot.ramp.rampDown(0.65);
-                robot.ramp.ramp2Down(0.65);
-                sleep(50);
-                robot.ramp.rampDown(0.625);
-                robot.ramp.ramp2Down(0.625);
-                sleep(50);
-                robot.ramp.rampDown(0.6);
-                robot.ramp.ramp2Down(0.6);
-                sleep(50);
-                robot.ramp.rampDown(0.575);
-                robot.ramp.ramp2Down(0.575);
-                sleep(50);
-                robot.ramp.rampDown(0.55);
-                robot.ramp.ramp2Down(0.55);
-                sleep(75);
-                robot.ramp.rampDown(0.525);
-                robot.ramp.ramp2Down(0.525);
-                sleep(75);
-                robot.ramp.rampDown(0.5);
-                robot.ramp.ramp2Down(0.5);
-                sleep(75);
-                robot.ramp.rampDown(0.475);
-                robot.ramp.ramp2Down(0.475);
-                sleep(75);
-                robot.ramp.rampDown(0.45);
-                robot.ramp.ramp2Down(0.45);
-                sleep(75);
-                robot.ramp.rampDown(0.425);
-                robot.ramp.ramp2Down(0.425);
-                sleep(75);
-                robot.ramp.rampDown(0.4);
-                robot.ramp.ramp2Down(0.4);
-                sleep(75);
-                robot.ramp.rampDown(0.375);
-                robot.ramp.ramp2Down(0.375);
-                sleep(75);
-                robot.ramp.rampDown(0.36);
-                robot.ramp.ramp2Down(0.36);
-                sleep(75);
+            if(rampUp){
+                rampPosition = rampPosition + 0.25;
+                robot.ramp.rampDown(rampPosition);
+                robot.ramp.ramp2Down(rampPosition);
+                if(rampPosition > 1) {
+                    rampUp = false;
+                }
+            }
 
+            if(gamepad1.right_bumper) {
+                rampDown = true;
+                rampUp = false;
+
+            }
+            if(rampDown){
+                if(rampPosition < 0.9) {
+                    rampPosition = rampPosition - 0.05;
+                }
+                else {
+                    rampPosition = rampPosition - 0.25;
+                }
+
+                if (rampPosition <= 0.4) {
+                    rampPosition = 0.4;
+                }
+
+                robot.ramp.rampDown(rampPosition);
+                robot.ramp.ramp2Down(rampPosition);
+
+                if(rampPosition <= 0.4) {
+                    rampDown = false;
+                }
             }
 
             if(gamepad1.x){
