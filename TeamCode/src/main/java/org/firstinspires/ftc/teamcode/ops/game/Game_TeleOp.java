@@ -119,6 +119,8 @@ public class Game_TeleOp extends LinearOpMode {
                 }
             }
 
+
+
             if(gamepad1.left_bumper){
                 rampUp = true;
                 rampDown = false;
@@ -138,11 +140,11 @@ public class Game_TeleOp extends LinearOpMode {
 
             }
             if(rampDown){
-                if(rampPosition < 0.9) {
-                    rampPosition = rampPosition - 0.05;
+                if(rampPosition < 0.85) {
+                    rampPosition = rampPosition - 0.010;
                 }
                 else {
-                    rampPosition = rampPosition - 0.25;
+                    rampPosition = rampPosition - 0.005;
                 }
 
                 if (rampPosition <= 0.4) {
