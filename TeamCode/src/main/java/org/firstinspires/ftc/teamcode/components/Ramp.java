@@ -44,6 +44,7 @@ public class Ramp extends BotComponent {
     public Servo rampServo2 = null;
     double SERVO_DOWN_POSITION = 0.3;
     double SERVO_UP_POSITION = 1;
+    double rampHandicap = 0.075;
 public Ramp(){
 }
 public Ramp(Logger aLogger, OpMode aOpMode, String aRampServoName1, String aRampServoName2){
@@ -55,8 +56,8 @@ public Ramp(Logger aLogger, OpMode aOpMode, String aRampServoName1, String aRamp
 public void init( ){
 
     logger.logDebug("initservo", "IamWalrus");
-    rampServo1 = initServo(rampServoName1, 1);
-    rampServo2 = initServo(rampServoName2, 1);
+    rampServo1 = initServo(rampServoName1, 1.0 - rampHandicap);
+    rampServo2 = initServo(rampServoName2, 1.0);
     if(rampServo1 != null && rampServo2 != null){
         isAvailable = true;
     }
@@ -68,9 +69,6 @@ public void rampDown(double x){
     logger.logDebug("servoMoveDown", "walrus");
     rampServo1.setPosition(x);
 }
-
-
-
 
 /*
 USE THIS FOR GOING DOWN (COPY PASTE)

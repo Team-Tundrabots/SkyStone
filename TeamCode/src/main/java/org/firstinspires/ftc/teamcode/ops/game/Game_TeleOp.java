@@ -78,6 +78,7 @@ public class Game_TeleOp extends LinearOpMode {
         boolean rampUp = false;
         boolean rampDown = false;
         double rampPosition = 1;
+        double rampHandicap = 0.075;
 
 
         while (opModeIsActive()) {
@@ -98,12 +99,12 @@ public class Game_TeleOp extends LinearOpMode {
 
             }
 
-
             if (robot.intake.isAvailable) {
                 if (gamepad1.left_trigger > 0) {
                     robot.intake.setIntakePower(-1);
                 }
-                if (gamepad1.left_trigger <= 0) {
+                if(gamepad1.left_trigger <= 0)
+                {
                     robot.intake.setIntakePower(0);
                 }
             }
@@ -113,49 +114,47 @@ public class Game_TeleOp extends LinearOpMode {
                 if (gamepad1.right_trigger > 0) {
                     robot.intake.setIntakePower(0.9);
                 }
-                if (gamepad1.right_trigger <= 0) {
+                if(gamepad1.right_trigger <= 0)
+                {
                     robot.intake.setIntakePower(0);
                 }
             }
 
-
-            if (gamepad1.left_bumper) {
+            if(gamepad1.left_bumper){
                 rampUp = true;
                 rampDown = false;
-                while (rampUp) {
-                    rampPosition = rampPosition + 0.5;
-                    robot.ramp.rampDown(rampPosition);
-                    robot.ramp.ramp2Down(rampPosition);
-                    if (rampPosition > 1) {
-                        rampUp = false;
-                        rampPosition = 1;
-                    }
+            }
+            if(rampUp){
+                rampPosition = rampPosition + 0.25;
+                robot.ramp.rampDown(rampPosition);
+                robot.ramp.ramp2Down(rampPosition);
+                if(rampPosition > 1) {
+                    rampUp = false;
                 }
             }
 
-            if (gamepad1.right_bumper) {
+            if(gamepad1.right_bumper) {
                 rampDown = true;
                 rampUp = false;
 
+            }
+            if(rampDown){
+                if(rampPosition < 0.9) {
+                    rampPosition = rampPosition - 0.05;
+                }
+                else {
+                    rampPosition = rampPosition - 0.25;
+                }
 
-                while (rampDown) {
-                    if (rampPosition < 0.40) {
-                        rampPosition = rampPosition - 0.005;
+                if (rampPosition <= 0.4) {
+                    rampPosition = 0.4;
+                }
 
-                    } else {
-                        rampPosition = rampPosition - 0.001;
-                    }
+                robot.ramp.rampDown(rampPosition);
+                robot.ramp.ramp2Down(rampPosition);
 
-                    if (rampPosition <= 0.4) {
-                        rampPosition = 0.4;
-                    }
-
-                    robot.ramp.rampDown(rampPosition);
-                    robot.ramp.ramp2Down(rampPosition);
-
-                    if (rampPosition <= 0.4) {
-                        rampDown = false;
-                    }
+                if(rampPosition <= 0.4) {
+                    rampDown = false;
                 }
             }
 
