@@ -130,6 +130,7 @@ public class Game_TeleOp extends LinearOpMode {
                 robot.ramp.ramp2Down(rampPosition);
                 if(rampPosition > 1) {
                     rampUp = false;
+                    rampPosition = 1;
                 }
             }
 
@@ -139,23 +140,24 @@ public class Game_TeleOp extends LinearOpMode {
 
             }
             if(rampDown){
-                if(rampPosition < 0.9) {
-                    rampPosition = rampPosition - 0.05;
+                if(rampPosition < 0.67) {
+                    rampPosition = rampPosition - 0.0008;
                 }
                 else {
-                    rampPosition = rampPosition - 0.25;
+                    rampPosition = rampPosition - 0.005;
                 }
 
-                if (rampPosition <= 0.4) {
-                    rampPosition = 0.4;
+                if (rampPosition <= 0.45) {
+                    rampPosition = 0.45;
+                    rampDown = false;
                 }
 
                 robot.ramp.rampDown(rampPosition);
                 robot.ramp.ramp2Down(rampPosition);
 
-                if(rampPosition <= 0.4) {
+                /*if(rampPosition <= 0.4) {
                     rampDown = false;
-                }
+                }*/
             }
 
             if(gamepad1.x){
