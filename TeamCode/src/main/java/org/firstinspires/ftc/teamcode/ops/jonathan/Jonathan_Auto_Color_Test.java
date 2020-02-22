@@ -84,7 +84,7 @@ public class Jonathan_Auto_Color_Test extends LinearOpMode {
 
             while (opModeIsActive())
             {
-                    while(distance > (double)2.0) {
+                    while(distance > (double)4.0) {
 
                         if (speedFactor < 1) {
                             speedFactor += increment;
@@ -92,15 +92,15 @@ public class Jonathan_Auto_Color_Test extends LinearOpMode {
                         }
                         distance = robot.colorFinder.rightDistance.getDistance(DistanceUnit.CM);
                     }
-/*
+
                 while(!found){
                     robot.driveTrainSimple.driveByEncoder(0.5, 2);
-                    if(robot.colorFinder.rightColor.alpha() > 3700 && robot.colorFinder.rightColor.alpha() < 3900){
-                        if(robot.colorFinder.rightColor.red() > 900 && robot.colorFinder.rightColor.red() < 1100){
-                            if(robot.colorFinder.rightColor.green() > 1700 && robot.colorFinder.rightColor.green() < 1900){
-                                if(robot.colorFinder.rightColor.blue() > 900 && robot.colorFinder.rightColor.blue() < 1100){
+                    if(robot.colorFinder.rightColor.alpha() > 9000 && robot.colorFinder.rightColor.alpha() < 12000){
+                        if(robot.colorFinder.rightColor.red() > 2400 && robot.colorFinder.rightColor.red() < 3000){
+                            if(robot.colorFinder.rightColor.green() > 4700 && robot.colorFinder.rightColor.green() < 5500){
+                                if(robot.colorFinder.rightColor.blue() > 2900 && robot.colorFinder.rightColor.blue() < 3700){
                                     robot.driveTrainSimple.crabByEncoderLeft(1,20);
-                                    found = true;
+                                    //found = true;
                                 }
                             }
                         }
@@ -108,16 +108,19 @@ public class Jonathan_Auto_Color_Test extends LinearOpMode {
                 }
                 robot.driveTrainSimple.crabByEncoderLeft(1,20);
 
- */
+
+
+                /*
                 while(!found){
-                    if(robot.colorFinder.rightColor.argb() > 40 && robot.colorFinder.rightColor.argb() < 75){
+                    if(robot.colorFinder.rightColor.argb() > 640000000 && robot.colorFinder.rightColor.argb() < 900000000){
                         robot.driveTrainSimple.driveByEncoder(0.5, 2);
+                        found = true;
                     }
                     else{
                         robot.driveTrainSimple.crabByEncoderLeft(1, 20);
-                        found = true;
                     }
                 }
+*/
 
 
                 //distance = robot.colorFinder.rightDistance.getDistance(DistanceUnit.CM);

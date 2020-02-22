@@ -60,6 +60,7 @@ public class jonathan_color_test extends LinearOpMode {
                 telemetry.addData("Red  ", robot.colorFinder.leftColor.red());
                 telemetry.addData("Green", robot.colorFinder.leftColor.green());
                 telemetry.addData("Blue ", robot.colorFinder.leftColor.blue());
+                telemetry.addData("IJghsfhg", robot.colorFinder.leftColor.argb());
 
                 telemetry.update();
 
