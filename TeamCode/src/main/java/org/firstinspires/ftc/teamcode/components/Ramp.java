@@ -55,8 +55,8 @@ public Ramp(Logger aLogger, OpMode aOpMode, String aRampServoName1, String aRamp
 public void init( ){
 
     logger.logDebug("initservo", "IamWalrus");
-    rampServo1 = initServo(rampServoName1, 1);
-    rampServo2 = initServo(rampServoName2, 1);
+    rampServo1 = initServo(rampServoName1, 1.0);
+    rampServo2 = initServo(rampServoName2, 1.0);
     if(rampServo1 != null && rampServo2 != null){
         isAvailable = true;
     }
