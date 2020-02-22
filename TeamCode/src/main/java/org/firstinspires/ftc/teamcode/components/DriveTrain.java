@@ -594,15 +594,15 @@ public class DriveTrain extends BotComponent {
                     rotationComplete = true;
                 }
 */
-                if (currentAngle <= targetAngle) {
+                if (currentAngle <= targetAngle + 1) {
                     rotationComplete = true;
                 }
 
-            } else if (targetAngle > currentAngle) {   // turn right.
+            } else if (targetAngle + 1 > currentAngle) {   // turn right.
                 logger.logDebug("gyroRotate", "turning right");
                 leftPower = - adjustedPower;
                 rightPower = adjustedPower;
-                if (currentAngle >= targetAngle) {
+                if (currentAngle >= targetAngle - 1) {
                     rotationComplete = true;
                 }
             } else {
