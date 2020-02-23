@@ -70,6 +70,7 @@ public class Game_TeleOp extends LinearOpMode {
         robot.grapple.init();
         robot.ramp.init();
         robot.intake.init();
+        robot.tapeShooter.init();
 
         robot.logger.logInfo("runOpMode", "===== [ Start TeleOp ]");
         runtime.reset();
@@ -90,6 +91,18 @@ public class Game_TeleOp extends LinearOpMode {
                 telemetry.addData("Left", "X (%.2f), Y (%.2f)", leftX, leftY);
                 telemetry.addData("Right", "X (%.2f), Y (%.2f)", rightX, rightY);
 
+            }
+
+            if (robot.tapeShooter.isAvailable) {
+                while (gamepad1.a) {
+                    robot.tapeShooter.setShooterPower(1);
+                }
+            }
+
+            if (robot.tapeShooter.isAvailable) {
+                while (gamepad1.b) {
+                    robot.tapeShooter.setShooterPower(-1);
+                }
             }
 
             if (robot.intake.isAvailable) {

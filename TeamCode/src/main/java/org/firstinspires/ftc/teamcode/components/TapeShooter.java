@@ -27,61 +27,53 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package org.firstinspires.ftc.teamcode.bots;
+package org.firstinspires.ftc.teamcode.components;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
 
-import org.firstinspires.ftc.teamcode.components.DriveTrain;
-import org.firstinspires.ftc.teamcode.components.Grapple;
-import org.firstinspires.ftc.teamcode.components.Intake;
-import org.firstinspires.ftc.teamcode.components.Logger;
-import org.firstinspires.ftc.teamcode.components.Ramp;
-import org.firstinspires.ftc.teamcode.components.TapeShooter;
+//@Disabled
+public class TapeShooter extends BotComponent {
+    private String tapeShooterName;
 
-public class GameTeleBot extends Bot {
+    public DcMotor tapeShooter = null;
 
-    /* BotComponents */
 
-    public Logger logger = null;
-    public DriveTrain driveTrain = null;
+    private boolean tapeShooterEnabled = true;
 
-    public Grapple grapple = null;
-    //public ColorSensor colorDetection = null;
-    public Intake intake = null;
-    public Ramp ramp = null;
-    public TapeShooter tapeShooter = null;
-
-    /* Constructor */
-    public GameTeleBot() {
+    public TapeShooter(){
 
     }
 
-    public GameTeleBot(OpMode aOpMode) {
-        this(aOpMode, false, false);
-    }
+    public TapeShooter(Logger aLogger, OpMode aOpMode,
+                       String aTapeShooterName) {
+            super (aLogger, aOpMode);
+        tapeShooterName = aTapeShooterName;
 
-    public GameTeleBot(OpMode aOpMode, boolean enableTrace, boolean enableTelemetry) {
 
-        logger = new Logger("TestBot", aOpMode, enableTrace, enableTelemetry);
-        driveTrain = new DriveTrain(logger, aOpMode, "frontLeftMotor", "frontRightMotor",
-                "backLeftMotor", "backRightMotor");
-
-        grapple = new Grapple(logger, aOpMode, "servo1", "servo2");
-
-        intake = new Intake(logger, aOpMode, "Right_Intake", "Left_Intake");
-        ramp = new Ramp(logger, aOpMode, "rampServo", "rampServo2");
-
-        tapeShooter = new TapeShooter(logger, aOpMode, "tapeShooter");
 
     }
 
-    public void initAll() {
-        driveTrain.init(DriveTrain.InitType.INIT_4WD);
-        grapple.init();
-        ramp.init();
-        intake.init();
-        tapeShooter.init();
+    public void init() {
+
+        //define and initialize motors
+
+        tapeShooter = initMotor(tapeShooterName, DcMotor.Direction.REVERSE);
+
+        if (tapeShooter != null) {
+            isAvailable = true;
+        }
+
+        logger.logInfo("TapeShooter", "isAvailable: %b", isAvailable);
     }
+
+
+    public void setShooterPower (double power){
+        tapeShooter.setPower(-power);
+    }
+
+
+
 
 }
 
