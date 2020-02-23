@@ -94,13 +94,13 @@ public class Game_TeleOp extends LinearOpMode {
             }
 
             if (robot.tapeShooter.isAvailable) {
-                while (gamepad1.a) {
+                if (gamepad1.a) {
                     robot.tapeShooter.setShooterPower(1);
                 }
             }
 
             if (robot.tapeShooter.isAvailable) {
-                while (gamepad1.b) {
+                if (gamepad1.b) {
                     robot.tapeShooter.setShooterPower(-1);
                 }
             }
