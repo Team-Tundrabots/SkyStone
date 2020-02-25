@@ -88,10 +88,11 @@ public class Red_Load_Side_Stone extends LinearOpMode {
         robot.driveTrainSimple.crabByEncoderRight(1, 48);
         robot.intake.setIntakePower(0.8);
         robot.driveTrainSimple.driveByEncoder(1, 8);
-        robot.driveTrainSimple.crabByEncoderLeft(1, 28);
+        robot.driveTrainSimple.crabByEncoderLeft(1, 20);
         robot.intake.setIntakePower(0);
-        robot.driveTrain.moveForward(0.4, -1);
-        robot.driveTrainSimple.driveByEncoder(1, -100);
+        robot.driveTrain.moveForward(0.7, -1);
+       // robot.driveTrainSimple.driveByEncoder(1, -100);
+        robot.driveTrain.moveForward(1.6, 1);
         robot.driveTrain.gyroRotate(-90, 1, true, false);
         robot.driveTrainSimple.driveByEncoder(1, -12);
         robot.grapple.grappleMoveDown();
@@ -167,8 +168,15 @@ public class Red_Load_Side_Stone extends LinearOpMode {
         robot.driveTrainSimple.driveByEncoder(1, 12);
         robot.ramp.ramp2Up();
         robot.ramp.rampUp();
-        robot.driveTrainSimple.driveByEncoder(1, 30);
-        robot.driveTrainSimple.crabByEncoderRight(1, 12);
+        robot.driveTrainSimple.crabByEncoderRight(1, 10);
+        robot.driveTrainSimple.driveByEncoder(1, 64);
+        robot.driveTrainSimple.crabByEncoderRight(1, 10);
+        robot.intake.setIntakePower(0.9);
+        robot.driveTrainSimple.driveByEncoder(1, 8);
+        robot.driveTrainSimple.crabByEncoderLeft(1, 10);
+        robot.intake.setIntakePower(0);
+        robot.driveTrainSimple.driveByEncoder(1, -20);
+
 
 
         // Show the elapsed game time.
