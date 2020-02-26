@@ -71,37 +71,44 @@ public class Red_Load_Side_Stone extends LinearOpMode {
 
         /********** Put Your Code Here **********/
 
-      /*  robot.logger.logInfo("runOpMode", "===== [ Run Forward ]");
-        robot.driveTrainSimple.driveByEncoder(0.5, 24);
 
-        robot.logger.logInfo("runOpMode", "===== [ Crab Left ]");
-        robot.driveTrainSimple.crabByEncoderLeft(0.5, 24);
-        //robot.driveTrainSimple.pause(2);
-
-        robot.logger.logInfo("runOpMode", "===== [ Run Backward ]");
-        robot.driveTrainSimple.driveByEncoder(0.5, -24);
-
-        robot.logger.logInfo("runOpMode", "===== [ Crab Right ]");
-        robot.driveTrainSimple.crabByEncoderRight(0.5, 24);  */
-
+        robot.logger.logInfo("runOpMode", "===== [ Crab Right - Wall to Stones]");
 
         robot.driveTrainSimple.crabByEncoderRight(1, 48);
+
+        robot.logger.logInfo("runOpMode", "===== [ Pick Up Stone]");
         robot.intake.setIntakePower(0.8);
         robot.driveTrainSimple.driveByEncoder(1, 8);
+
+        robot.logger.logInfo("runOpMode", "===== [ Crab Left (Away from Stones)]");
         robot.driveTrainSimple.crabByEncoderLeft(1, 20);
         robot.intake.setIntakePower(0);
+
+
+        robot.logger.logInfo("runOpMode", "===== [ Head toward wall]");
         robot.driveTrainSimple.driveByEncoder(1, 26);
+
+        robot.logger.logInfo("runOpMode", "===== [ Bump wall]");
         robot.driveTrain.moveForward(0.3, -0.5);
+
+        robot.logger.logInfo("runOpMode", "===== [ Run Across The Field to Build Zone]");
        // robot.driveTrainSimple.driveByEncoder(1, -100);
         robot.driveTrain.moveForward(1.6, 1);
+
+        robot.logger.logInfo("runOpMode", "===== [ Turn and grab foundation]");
         robot.driveTrain.gyroRotate(-90, 1, true, false);
         robot.driveTrainSimple.driveByEncoder(1, -12);
         robot.grapple.grappleMoveDown();
         robot.driveTrain.pause(1.2);
+
+        robot.logger.logInfo("runOpMode", "===== [ Pull foundation]");
         robot.driveTrainSimple.driveByEncoder(1, 24);
         robot.driveTrain.move(1.1, -1, 1);
         robot.grapple.grappleMoveUp();
         robot.driveTrain.moveForward(0.5, 1);
+
+        robot.logger.logInfo("runOpMode", "===== [ Drop Brick]");
+
         //slower ramp dumping
         robot.ramp.rampDown(0.8);
         robot.ramp.ramp2Down(0.8);
@@ -166,19 +173,31 @@ public class Red_Load_Side_Stone extends LinearOpMode {
         robot.ramp.rampDown(0.3);
         robot.ramp.ramp2Down(0.3);
         sleep(200);
+
+        robot.logger.logInfo("runOpMode", "===== [ Let brick out]");
         robot.driveTrainSimple.driveByEncoder(1, 12);
         robot.ramp.ramp2Up();
         robot.ramp.rampUp();
       //  robot.driveTrainSimple.crabByEncoderRight(1, 10);
-        robot.driveTrainSimple.driveByEncoder(1, 64);
+
+        robot.logger.logInfo("runOpMode", "===== [ Back across field]");
+        robot.driveTrainSimple.driveByEncoder(1, 12);
+        robot.driveTrainSimple.driveByEncoder(1, 50);
+
+        robot.logger.logInfo("runOpMode", "===== [ Move into brick wall]");
         robot.driveTrainSimple.crabByEncoderRight(1, 10);
+
+        robot.logger.logInfo("runOpMode", "===== [ Pick up second brick]");
         robot.intake.setIntakePower(0.9);
         robot.driveTrainSimple.driveByEncoder(1, 8);
+
+        robot.logger.logInfo("runOpMode", "===== [ Drag brick out of wall]");
         robot.driveTrainSimple.crabByEncoderLeft(1, 10);
         robot.intake.setIntakePower(0);
+
+
+        robot.logger.logInfo("runOpMode", "===== [ Back up?]");
         robot.driveTrainSimple.driveByEncoder(1, -20);
-
-
 
         // Show the elapsed game time.
         robot.logger.logInfo("runOpMode", "===== [ Autonomous Complete ] Run Time: %s", runtime.toString());
