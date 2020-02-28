@@ -41,6 +41,7 @@ import org.firstinspires.ftc.teamcode.components.DriveTrain;
 import org.firstinspires.ftc.teamcode.components.Intake;
 import org.firstinspires.ftc.teamcode.components.WebCamera;
 import org.firstinspires.ftc.teamcode.components.Ramp;
+import org.firstinspires.ftc.teamcode.components.Lift;
 
 
 @TeleOp(name="Game_TeleOp", group="game")
@@ -70,6 +71,7 @@ public class Game_TeleOp extends LinearOpMode {
         robot.grapple.init();
         robot.ramp.init();
         robot.intake.init();
+        robot.lift.init();
 
         robot.logger.logInfo("runOpMode", "===== [ Start TeleOp ]");
         runtime.reset();
@@ -163,11 +165,27 @@ public class Game_TeleOp extends LinearOpMode {
                 robot.grapple.grappleMoveDown();
             }
             if (gamepad1.y){
-
-
-
                 robot.grapple.grappleMoveUp();
             }
+
+            if(gamepad1.dpad_up) {
+                robot.lift.setLiftPowerUp();
+            }
+            else if(gamepad1.dpad_down){
+                robot.lift.setLiftPowerDown();
+            }
+            else
+            {
+                robot.lift.setLiftPowerNull();
+            }
+
+            if(gamepad1.dpad_right){
+                robot.lift.setServoUp();
+            }
+            if(gamepad1.dpad_left){
+                robot.lift.setServoDown();
+            }
+
 
             // Show the elapsed game time.
             robot.logger.logInfo("runOpMode", "===== [ TeleOp Complete ] Run Time: %s", runtime.toString());

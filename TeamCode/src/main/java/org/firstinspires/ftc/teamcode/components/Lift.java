@@ -27,59 +27,81 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package org.firstinspires.ftc.teamcode.bots;
+package org.firstinspires.ftc.teamcode.components;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 
-import org.firstinspires.ftc.teamcode.components.DriveTrain;
-import org.firstinspires.ftc.teamcode.components.Grapple;
-import org.firstinspires.ftc.teamcode.components.Intake;
-import org.firstinspires.ftc.teamcode.components.Logger;
-import org.firstinspires.ftc.teamcode.components.Ramp;
-import org.firstinspires.ftc.teamcode.components.Lift;
+//@Disabled
+public class Lift extends BotComponent {
+    private String LiftName;
+    private String ServoName;
 
-public class GameTeleBot extends Bot {
+    public DcMotor liftMotor = null;
+    public Servo liftDrop = null;
 
-    /* BotComponents */
 
-    public Logger logger = null;
-    public DriveTrain driveTrain = null;
+    private boolean liftMotorEnabled = true;
+    private boolean liftDropEnabled = true;
 
-    public Grapple grapple = null;
-    //public ColorSensor colorDetection = null;
-    public Intake intake = null;
-    public Ramp ramp = null;
-    public Lift lift = null;
-
-    /* Constructor */
-    public GameTeleBot() {
+    public Lift(){
 
     }
 
-    public GameTeleBot(OpMode aOpMode) {
-        this(aOpMode, false, false);
-    }
+    public Lift(Logger aLogger, OpMode aOpMode,
+                String aLiftName, String aServoName) {
+            super (aLogger, aOpMode);
+        LiftName = aLiftName;
+        ServoName = aServoName;
 
-    public GameTeleBot(OpMode aOpMode, boolean enableTrace, boolean enableTelemetry) {
 
-        logger = new Logger("TestBot", aOpMode, enableTrace, enableTelemetry);
-        driveTrain = new DriveTrain(logger, aOpMode, "frontLeftMotor", "frontRightMotor",
-                "backLeftMotor", "backRightMotor");
-
-        grapple = new Grapple(logger, aOpMode, "servo1", "servo2");
-
-        intake = new Intake(logger, aOpMode, "Right_Intake", "Left_Intake");
-        ramp = new Ramp(logger, aOpMode, "rampServo", "rampServo2");
-        lift = new Lift(logger, aOpMode, "liftMotor", "capServo");
 
     }
 
-    public void initAll() {
-        driveTrain.init(DriveTrain.InitType.INIT_4WD);
-        grapple.init();
-        ramp.init();
-        intake.init();
+    public void init() {
+
+        //define and initialize motors
+
+        liftMotor = initMotor(LiftName, DcMotor.Direction.REVERSE);
+        liftDrop = initServo(ServoName, 0.23);
+
+        if (liftMotor != null) {
+            isAvailable = true;
+        }
+        if(liftDrop != null){
+            isAvailable = true;
+        }
+
+        logger.logInfo("Intake", "isAvailable: %b", isAvailable);
+
     }
+
+
+    public void setLiftPowerUp (){
+        liftMotor.setPower(1);
+    }
+
+    public void setLiftPowerDown(){
+        liftMotor.setPower(-1);
+    }
+
+    public void setLiftPowerNull()
+    {
+        liftMotor.setPower(0);
+    }
+
+
+    public void setServoUp (){
+        liftDrop.setPosition(0.82);
+    }
+
+    public void setServoDown(){
+        liftDrop.setPosition(0.23);
+    }
+
+
+
 
 }
 
