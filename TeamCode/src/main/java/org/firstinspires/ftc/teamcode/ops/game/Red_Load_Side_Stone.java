@@ -86,12 +86,11 @@ public class Red_Load_Side_Stone extends LinearOpMode {
 
 
         robot.driveTrainSimple.crabByEncoderRight(1, 48);
-        robot.intake.setIntakePower(0.8);
+        robot.intake.setIntakePower(0.9);
         robot.driveTrainSimple.driveByEncoder(1, 8);
         robot.driveTrainSimple.crabByEncoderLeft(1, 20);
         robot.intake.setIntakePower(0);
-        robot.driveTrainSimple.driveByEncoder(1, 26);
-        robot.driveTrain.moveForward(0.3, -0.5);
+        robot.driveTrain.moveForward(0.8, -0.5);
        // robot.driveTrainSimple.driveByEncoder(1, -100);
         robot.driveTrain.moveForward(1.6, 1);
         robot.driveTrain.gyroRotate(-90, 1, true, false);
@@ -159,24 +158,19 @@ public class Red_Load_Side_Stone extends LinearOpMode {
         sleep(75);
         robot.ramp.rampDown(0.35);
         robot.ramp.ramp2Down(0.35);
-        sleep(75);
-        robot.ramp.rampDown(0.325);
-        robot.ramp.ramp2Down(0.325);
-        sleep(75);
-        robot.ramp.rampDown(0.3);
-        robot.ramp.ramp2Down(0.3);
         sleep(200);
         robot.driveTrainSimple.driveByEncoder(1, 12);
         robot.ramp.ramp2Up();
         robot.ramp.rampUp();
-      //  robot.driveTrainSimple.crabByEncoderRight(1, 10);
-        robot.driveTrainSimple.driveByEncoder(1, 64);
+        robot.driveTrainSimple.crabByEncoderRight(1, 9);
+        robot.driveTrainSimple.driveByEncoder(1, 25);
+      /*  robot.driveTrainSimple.driveByEncoder(1, 64);
         robot.driveTrainSimple.crabByEncoderRight(1, 10);
         robot.intake.setIntakePower(0.9);
         robot.driveTrainSimple.driveByEncoder(1, 8);
         robot.driveTrainSimple.crabByEncoderLeft(1, 10);
         robot.intake.setIntakePower(0);
-        robot.driveTrainSimple.driveByEncoder(1, -20);
+        robot.driveTrainSimple.driveByEncoder(1, -20); */
 
 
 

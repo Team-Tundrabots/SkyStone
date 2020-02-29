@@ -64,7 +64,7 @@ public class Lift extends BotComponent {
         //define and initialize motors
 
         liftMotor = initMotor(LiftName, DcMotor.Direction.REVERSE);
-        liftDrop = initServo(ServoName, 0.23);
+        liftDrop = initServo(ServoName, 0.24);
 
         if (liftMotor != null) {
             isAvailable = true;
@@ -83,7 +83,7 @@ public class Lift extends BotComponent {
     }
 
     public void setLiftPowerDown(){
-        liftMotor.setPower(-1);
+        liftMotor.setPower(-0.1);
     }
 
     public void setLiftPowerNull()
@@ -93,11 +93,11 @@ public class Lift extends BotComponent {
 
 
     public void setServoUp (){
-        liftDrop.setPosition(0.82);
+        liftDrop.setPosition(0.68);
     }
 
     public void setServoDown(){
-        liftDrop.setPosition(0.23);
+        liftDrop.setPosition(0.24);
     }
 
 
