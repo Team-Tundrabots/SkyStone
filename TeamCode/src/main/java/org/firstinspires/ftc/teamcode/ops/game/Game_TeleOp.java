@@ -70,6 +70,8 @@ public class Game_TeleOp extends LinearOpMode {
         robot.grapple.init();
         robot.ramp.init();
         robot.intake.init();
+        robot.lift.init();
+        robot.tapeGun.init();
 
         robot.logger.logInfo("runOpMode", "===== [ Start TeleOp ]");
         runtime.reset();
@@ -174,6 +176,24 @@ public class Game_TeleOp extends LinearOpMode {
             }
             else{
                 robot.tapeGun.stopTape();
+            }
+
+            if(gamepad1.dpad_up) {
+                robot.lift.setLiftPowerUp();
+            }
+            else if(gamepad1.dpad_down){
+                robot.lift.setLiftPowerDown();
+            }
+            else
+            {
+                robot.lift.setLiftPowerNull();
+            }
+
+            if(gamepad1.dpad_right){
+                robot.lift.setServoUp();
+            }
+            if(gamepad1.dpad_left){
+                robot.lift.setServoDown();
             }
 
             // Show the elapsed game time.

@@ -37,6 +37,7 @@ import org.firstinspires.ftc.teamcode.components.Intake;
 import org.firstinspires.ftc.teamcode.components.Logger;
 import org.firstinspires.ftc.teamcode.components.Ramp;
 import org.firstinspires.ftc.teamcode.components.TapeGun;
+import org.firstinspires.ftc.teamcode.components.Lift;
 
 public class GameTeleBot extends Bot {
 
@@ -50,6 +51,7 @@ public class GameTeleBot extends Bot {
     public Intake intake = null;
     public Ramp ramp = null;
     public TapeGun tapeGun = null;
+    public Lift lift = null;
 
     /* Constructor */
     public GameTeleBot() {
@@ -71,6 +73,7 @@ public class GameTeleBot extends Bot {
         intake = new Intake(logger, aOpMode, "Right_Intake", "Left_Intake");
         ramp = new Ramp(logger, aOpMode, "rampServo", "rampServo2");
         tapeGun = new TapeGun(logger, aOpMode, "tapeGun");
+        lift = new Lift(logger, aOpMode, "liftMotor", "capServo");
 
 
     }
@@ -81,6 +84,7 @@ public class GameTeleBot extends Bot {
         ramp.init();
         intake.init();
         tapeGun.init();
+        lift.init();
     }
 
 }
