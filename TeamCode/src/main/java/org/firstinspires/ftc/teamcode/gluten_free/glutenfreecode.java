@@ -1,9 +1,5 @@
 package org.firstinspires.ftc.teamcode.gluten_free;
 
 public class glutenfreecode {
-    //hopefully this comment will show up
+    //IDE Testsing of gluten free's code (see text file)
 }
-
-/*
-Gluten Free Code Here
- */
